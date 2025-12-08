@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>About Kaizen Hospital -Robotic GI Surgery</title>
+    <meta name="author" content="Vecuro">
+    <meta name="description" content="Medixi - Medical and Health Care HTML Template">
+    <meta name="keywords" content="Medixi - Medical and Health Care HTML Template">
+    <meta name="robots" content="INDEX,FOLLOW">
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--==============================
+	   Google Web Fonts
+	============================== -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&amp;family=Quicksand:wght@400;700&amp;family=Roboto:wght@400;500;700&amp;display=swap"
+        rel="stylesheet">
+    <!-- Favicons - Place favicon.ico in the root directory -->
+    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+    <link rel="icon" href="assets/img/favicon.png" type="image/x-icon">
+    <!--==============================
+	    All CSS File
+	============================== -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="assets/css/app.min.css"> -->
+    <!-- Fontawesome Icon -->
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+    <!-- Layerslider -->
+    <link rel="stylesheet" href="assets/css/layerslider.min.css">
+    <!-- jQuery DatePicker -->
+    <link rel="stylesheet" href="assets/css/jquery.datetimepicker.min.css">
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="assets/css/magnific-popup.min.css">
+    <!-- Slick Slider -->
+    <link rel="stylesheet" href="assets/css/slick.min.css">
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="assets/css/animate.min.css">
+    <!-- Theme Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<style>
+    /* .about-section6 {
+        position: relative;
+        margin-top: -160px;
+    }
+
+    .custom-top-space {
+        padding-top: 110px;
+    } */
+    .book {
+        position: relative;
+        display: flex;
+        margin: auto;
+        width: 40cqmin;
+        /*1* let pointer event go trough pages of lower Z than .book */
+        pointer-events: none;
+        transform-style: preserve-3d;
+        transition: translate 1s;
+        translate: calc(min(var(--c), 1) * 50%) 0%;
+        /* Incline on the X axis for pages preview */
+        rotate: 1 0 0 30deg;
+    }
+
+    .page {
+        /* PS: Don't go below thickness 0.5 or the pages might transpare */
+        --thickness: 4;
+        flex: none;
+        display: flex;
+        width: 100%;
+        font-size: 2cqmin;
+        /*1* allow pointer events on pages */
+        pointer-events: all;
+        user-select: none;
+        transform-style: preserve-3d;
+        transform-origin: left center;
+        transition:
+            transform 1s,
+            rotate 1s ease-in calc((min(var(--i), var(--c)) - max(var(--i), var(--c))) * 50ms);
+        translate: calc(var(--i) * -100%) 0px 0px;
+        transform: translateZ(calc((var(--c) - var(--i) - 0.5) * calc(var(--thickness) * .23cqmin)));
+        rotate: 0 1 0 calc(clamp(0, var(--c) - var(--i), 1) * -180deg);
+    }
+
+    .front,
+    .back {
+        position: relative;
+        flex: none;
+        width: 100%;
+        backface-visibility: hidden;
+        overflow: hidden;
+        background-color: #fff;
+        /* Fix backface visibility Firefox: */
+        translate: 0px;
+    }
+
+    .back {
+        translate: -100% 0;
+        rotate: 0 1 0 180deg;
+    }
+
+
+    /* That's it. Your FlipBook customization styles: */
+
+    .book {
+        counter-reset: page -1;
+
+        & a {
+            color: inherit;
+        }
+    }
+
+    .page {
+        box-shadow: 0em .5em 1em -.2em #00000020;
+    }
+
+    .front,
+    .back {
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: space-between;
+        padding: 2em;
+        border: 1px solid #0002;
+
+        &:has(img) {
+            padding: 0;
+        }
+
+        & img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        &::after {
+            position: absolute;
+            bottom: 1em;
+            counter-increment: page;
+            content: counter(page) ".";
+            font-size: 0.8em;
+        }
+    }
+
+    .cover {
+        &::after {
+            content: "";
+        }
+    }
+
+    .front {
+        &::after {
+            right: 1em;
+        }
+
+        background: linear-gradient(to left, #f7f7f7 80%, #eee 100%);
+        border-radius: .1em .5em .5em .1em;
+    }
+
+    .back {
+        &::after {
+            left: 1em;
+        }
+
+        background-image: linear-gradient(to right, #f7f7f7 80%, #eee 100%);
+        border-radius: .5em .1em .1em .5em;
+    }
+
+    .cover {
+        background: radial-gradient(circle farthest-corner at 80% 20%, hsl(150 80% 20% / .3) 0%, hsl(170 60% 10% / .1) 100%),
+            hsl(231, 32%, 29%) url("https://picsum.photos/id/984/800/900") 50% / cover;
+        color: hsl(200 30% 98%);
+    }
+
+    .book-s {
+        /* or any other parent wrapper */
+        margin: 0;
+        display: flex;
+        min-height: 100dvh;
+        perspective: 1000px;
+        font: 1em/1.4 "Poppins", sans-serif;
+        overflow: hidden;
+        color: hsl(180 68% 5%);
+        /* background-image: radial-gradient(circle farthest-corner at 50% 50%, hsl(187 20% 88%) 30%, hsl(149 20% 94%) 100%); */
+    }
+</style>
+
+<body>
+    <!--==============================
+     Preloader
+  ==============================-->
+    <div class="preloader">
+        <!-- <button class="vs-btn preloaderCls">Cancel Preloader </button> -->
+        <div class="preloader-inner">
+            <img src="./assets/img/Demo.png">
+        </div>
+    </div>
+    <!--==============================
+    Mobile Menu
+  ============================== -->
+    <div class="vs-menu-wrapper">
+        <div class="vs-menu-area text-center">
+            <button class="vs-menu-toggle"><i class="fal fa-times"></i></button>
+            <div class="mobile-logo">
+                <a href="index.html"><img src="assets/img/logo.png" alt="Medixi"></a>
+            </div>
+            <form action="#" class="mobile-menu-form">
+                <input type="text" class="form-control" placeholder="Search...">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+            <div class="vs-mobile-menu">
+                <ul>
+                    <li class="menu-item">
+                        <a href="index.html"><span class="has-new-label">Home</a>
+                    <li class="menu-item-has-children">
+                        <a href="about.html">About</a>
+                        <ul class="sub-menu">
+                            <li><a href="About-Kaizen.html">About Kaizen Hospital</a></li>
+                            <li><a href="haribhakti-foundation.html">About Haribhakti Education Foundation</a></li>
+                            <li><a href="about-Dr-team.html">About Dr. SPH & Team Kaizen</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="#">Robotic GI Surgery</a>
+                        <ul class="sub-menu">
+                            <li><a href="atlas-robotic-surgery.html">Atlas of Robotic GI Surgery</a>
+                            </li>
+                            <li><a href="robotic-video-photo.html">Robotic Surgery Photos &
+                                    Videos</a></li>
+                            <!-- <li><a href="#">Why Robotic Surgery?</a></li> -->
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="#">Procedures</a>
+                        <ul class="sub-menu">
+                            <li><a href="robotic-gi-procedures.html">Robotic Procedures</a></li>
+                            <li><a href="Laparoscopic-Procedures.html">Laparoscopic Procedures</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="#">GI Diseases</a>
+                        <ul class="sub-menu">
+                            <li><a href="Explore-GI-Diseases.html">Explore GI Diseases</a></li>
+                            <li><a href="#">Presentations</a></li>
+                            <li><a href="#">DVD Atlas of GI Surgery (2007)</a></li>
+                            <li><a href="#">Books</a></li>
+                            <li><a href="#">Interesting Cases</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="coming-soon.html">Innovations</a>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="#">Publications</a>
+                        <ul class="sub-menu">
+                            <li><a href="#">Books Published</a></li>
+                            <li><a href="#">Research / Academic Content</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="Gallery.html">Gallery</a>
+                        <ul class="sub-menu">
+                            <li><a href="photo-gallery.html">Photo Gallery</a></li>
+                            <li><a href="video-gallery.html">Video Gallery</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--==============================
+    Sidemenu
+    ============================== -->
+    <!--==============================
+    Popup Search Box
+    ============================== -->
+    <div class="popup-search-box d-none d-lg-block  ">
+        <button class="searchClose border-theme text-theme"><i class="fal fa-times"></i></button>
+        <form action="#">
+            <input type="text" class="border-theme" placeholder="What are you looking for">
+            <button type="submit"><i class="fal fa-search"></i></button>
+        </form>
+    </div>
+    <!--==============================
+        Header Area
+    ==============================-->
+    <header class="header-wrapper header-layout1">
+        <!-- Header Top -->
+        <div class="header-top bg-title py-2 d-none d-md-block">
+            <div class="container container-style1 py-1">
+                <div
+                    class="row justify-content-center justify-content-xl-between text-center text-xl-start align-items-center text-white">
+                    <h5 class="text-white p-0 m-0 text-center col-auto"></h5>
+                    <h5 class="text-white p-0 m-0 text-center col-auto">Dr.Haribhakti's Atlas of Robotic GI Surgery
+                        HARGiS</h5>
+                    <h5 class="text-white p-0 m-0 text-center col-auto">Visitor Count: 05</h5>
+                </div>
+            </div>
+        </div>
+        <!-- Sticky Active -->
+        <div class="sticky-wrap">
+            <div class="sticky-active">
+                <!-- Header Main -->
+                <div class="header-main">
+                    <div class="container container-style1 position-relative">
+                        <div class="row align-items-center justify-content-between">
+                            <div class="col-auto">
+                                <div class="header1-logo py-2">
+                                    <a href="index.html"><img src="assets/img/logo.png" alt="Logo"></a>
+                                </div>
+                            </div>
+                            <div class="col text-end text-lg-center">
+                                <nav class="main-menu menu-style1 d-none d-lg-block">
+                                    <ul>
+                                        <li class="menu-item-has-children">
+                                            <a href="#">About</a>
+                                            <ul class="sub-menu">
+                                                <li><a href="Mission-Vision.html">Mission & Vision</a></li>
+                                                <li><a href="HARGiS-Atlas.html">HARGiS Atlas</a></li>
+                                                <li><a href="Editor.html">Editors</a></li>
+                                                <li><a href="Publishers.html">Publishers</a></li>
+                                                <li><a href="Contributors.html">Contributors</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item-has-children">
+                                            <a href="#">Explore HARGiS </a>
+                                            <ul class="sub-menu">
+                                                <li><a href="robotic-gi-procedures.html">Robotic GI Procedures</a></li>
+                                                <li><a href="Fundamentals.html">Fundamentals</a></li>
+                                                <li><a href="Tips-Tricks.html">Tips & Tricks</a></li>
+                                                <li><a href="innovation-hargis.html">Innovations</a></li>
+                                                <!-- <li><a href="#">Why Robotic Surgery?</a></li> -->
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item-has-children mega-menu-wrap">
+                                            <a href="#"><span class="has-new-label">Academic Of HARGIS</a>
+                                            <ul class="mega-menu">
+                                                <li><a href="#">Education & Training</a>
+                                                    <ul>
+                                                        <li><a href="Fellowships.html">Fellowship</a></li>
+                                                        <li><a href="Observers.html">Onserves</a></li>
+                                                        <li><a href="#">Kaizen-Con</a></li>
+                                                        <li><a href="#">Lap Skill</a></li>
+                                                        <li><a href="#">CME</a></li>
+                                                        <li><a href="#">GISurgery.info</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="#">Books & Publications</a>
+                                                    <ul>
+                                                        <li><a href="Surgical-Gastroenterology.html">Surgical
+                                                                Gastroenterology</a>
+                                                        </li>
+                                                        <li><a href="Lap-Colorectal-Surgery.html">Lap. Colorectal
+                                                                Surgery</a></li>
+                                                        <li><a href="Gi-Surgery-book.html">Decision making in Gi
+                                                                Surgery</a>
+                                                        </li>
+                                                        <li><a href="Big-5-lesson.html">Big 5 Lessons</a></li>
+                                                        <li><a href="Bhagvat-Geeta.html">Bhagavad Geeta</a></li>
+                                                        <li><a href="coming-soon.html">Publications</a></li>
+                                                    </ul>
+                                                </li>
+
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="innovation's.html">Innovations</a>
+                                            
+                                        </li>
+                                        <li>
+                                            <a href="Patient-Testimonials.html">Patient Testimonials</a>
+                                        </li>
+                                        <li class="menu-item-has-children">
+                                            <a href="Gallery.html">Gallery</a>
+                                            <ul class="sub-menu">
+                                                <li><a href="Robotic-celebration.html">200+ Robotic Celebration</a></li>
+                                                <li><a href="CM-Event.html">CM Event & COE</a></li>
+                                                <li><a href="photo-gallery.html">Photos</a></li>
+                                                <li><a href="coming-soon.html">Media</a></li>
+                                                <li><a href="coming-soon.html">Events</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="contact.html">Contact Us</a>
+                                        </li>
+                                        <!-- <li>
+                                            <a href="#">Contact</a>
+                                        </li> -->
+                                    </ul>
+                                </nav>
+                                <button class="vs-menu-toggle d-inline-block d-lg-none"><i
+                                        class="fas fa-bars"></i></button>
+                            </div>
+                            <div class="col-auto gap-3 d-none d-lg-flex">
+                                <a href="#" class="icon-btn style3 searchBoxTggler"><i class="far fa-search"></i></a>
+                                <!-- <div class="col-auto d-none-xxxl">
+                                <div class="header-call phone-box d-flex align-items-center style2">
+                                    <a href="tel:66925682596" class="box-icon"><i class="fas fa-phone-alt"></i></a>
+                                    <div class="media-body">
+                                        <span class="fs-xs text-title">Call Anytime</span>
+                                        <p class="h4 fw-bold lh-1 mb-0"><a href="tel:66925682596">669 2568 2596</a></p>
+                                    </div>
+                                </div>
+                            </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header-note  d-none d-xl-block">
+                <div class="note-inner">
+                    <div class="container custom-container justify-content-between">
+                        <div class="col-auto">
+                            <h2 class="note-text text-white">" Pioneering Precision in GI Surgery "</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </header>
+    <!--==============================
+    Breadcumb
+============================== -->
+    <div class="breadcumb-wrapper ">
+        <div class="parallax" data-parallax-image="assets/img/hero/About-HARGiS.png"></div>
+        <div class="container z-index-common">
+            <div class="breadcumb-content">
+                <h1 class="breadcumb-title text-white">About Publishers </h1>
+                <div class="breadcumb-menu-wrap">
+                    <i class="far fa-home-lg"></i>
+                    <ul class="breadcumb-menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li class="active">About Publishers </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="about-section6 custom-top-space space-bottom">
+        <div class="container-style6" bis_skin_checked="1">
+            <div class="row" bis_skin_checked="1">
+                <div class="col-lg-6 col-md-12 col-sm-12 wow fadeInUp animated" data-wow-delay="600ms"
+                    bis_skin_checked="1" style="visibility: visible; animation-delay: 600ms; animation-name: g;">
+                    <div class="about-img-6" bis_skin_checked="1">
+                        <div class="image-box v1" bis_skin_checked="1">
+
+                        </div>
+                        <div class="image-box two" bis_skin_checked="1">
+                            <div class="header-call phone-box d-flex align-items-center style2" bis_skin_checked="1">
+                                <a href="https://www.youtube.com/watch?v=_sI_Ps7JSEk"
+                                    class="popup-video box-icon style2"><i class="fas fa-play"></i></a>
+                            </div>
+                            <img src="assets/img/about/HEF.png" alt="HEF" class="w-75">
+                            <!-- <div class="exp-box top-animation" bis_skin_checked="1">
+                                <h6>25</h6>
+                                <span>Years Experience</span>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-12 wow fadeInUp animated" data-wow-delay="400ms"
+                    bis_skin_checked="1" style="visibility: visible; animation-delay: 400ms; animation-name: g;">
+                    <div class="about-content6" bis_skin_checked="1">
+                        <div class="title-area-two v3" bis_skin_checked="1">
+                            <!-- <span class="sub-title6">Welcome to Medixi</span> -->
+                            <h2>Published by Haribhakti Education Foundation</h2>
+                        </div>
+                        <div class="row" bis_skin_checked="1">
+                            <p class="mb-2">
+                                <Strong>Haribhakti Education Foundation</Strong> is a visionary initiative dedicated to
+                                advancing
+                                medical education, surgical innovation, and skill development for the next generation of
+                                surgeons. An initiative of Dr. Sanjiv Haribhakti, and founded with a commitment to
+                                excellence, the foundation supports high-quality training programs, academic
+                                collaborations,
+                                digital learning platforms, and the dissemination of cutting-edge surgical knowledge.
+                                Under
+                                its umbrella, several surgical books have been released to empower learners and
+                                practitioners
+                                with authoritative resources.
+                            </p>
+                            <p class="mb-2">
+                                Additionally, Haribhakti Education foundation operates the website gisurgery.info, a
+                                virtual
+                                surgical repository accessible worldwide, offering free reference materials, procedural
+                                guides,
+                                and educational tools for GI-surgeons and trainees. This website helps individuals and
+                                families understand gastrointestinal diseases, treatment options, preventive health,
+                                nutrition,
+                                and postoperative care—promoting informed decision-making and improved outcomes.
+                            </p>
+                            <h5>Supported by: Kaizen Hospital, Institute of GE – <a
+                                    href="https://www.kaizenhospital.com/" target="_blank"><img
+                                        src="./assets/img/Kaizen.png" alt="Kaizen Logo"></a> </h5>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="about-section6 mt-3 space-bottom">
+        <div class="container-style6" bis_skin_checked="1">
+            <div class="row" bis_skin_checked="1">
+                <div class="col-lg-12 col-md-12 col-sm-12 wow fadeInUp animated" data-wow-delay="400ms"
+                    bis_skin_checked="1" style="visibility: visible; animation-delay: 400ms; animation-name: g;">
+                    <div class="about-content6" bis_skin_checked="1">
+                        <div class="title-area-two v3" bis_skin_checked="1">
+                            <!-- <span class="sub-title6">Welcome to Medixi</span> -->
+                            <h2>Kaizen Hospital – Stands for continuous progressive improvement</h2>
+                            <p>Kaizen Hospital stands as one of India’s most trusted and advanced institutions for
+                                Gastrointestinal, HPB, and Minimally Invasive Surgery. Built on the philosophy of
+                                continuous improvement—the true meaning of “Kaizen”—our hospital has redefined
+                                standards of precision, safety, and patient-centered care. We continuously innovate to
+                                proficiently use the most advanced technologies in the most judicious manner to enhance
+                                patient recovery and outcomes. This is what makes Kaizen a Centre of Excellence in
+                                Robotic
+                                Gi Surgery in India </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 wow fadeInUp animated" data-wow-delay="400ms"
+                    bis_skin_checked="1" style="visibility: visible; animation-delay: 400ms; animation-name: g;">
+                    <h3>1. Gujarat’s First Super-Speciality Hospital Dedicated to Gastroenterology</h3>
+                    <p>Kaizen Hospital was established with a singular vision: to provide comprehensive,
+                        specialised care exclusively for digestive diseases. This focus allows us to offer unmatched
+                        expertise across the entire spectrum of GI, liver, pancreas, and biliary conditions. </p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 wow fadeInUp animated" data-wow-delay="400ms"
+                    bis_skin_checked="1" style="visibility: visible; animation-delay: 400ms; animation-name: g;">
+                    <img src="assets/img/service/gujarat.png" alt="Kaizen Hospital GI" class="w-100 rounded-3">
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 wow fadeInUp animated" data-wow-delay="400ms"
+                    bis_skin_checked="1" style="visibility: visible; animation-delay: 400ms; animation-name: g;">
+                    <h3>2. Leadership by Renowned Experts</h3>
+                    <p>Under the leadership of Dr. Sanjiv Haribhakti, one of India’s foremost GI, HPB and
+                        Colorectal surgeon, and a pioneer in robotic GI surgery, our team brings decades of clinical
+                        excellence, innovation, and compassionate care. Our consultants are nationally recognised
+                        leaders who contribute to research, training, and surgical advancement. </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 wow fadeInUp animated" data-wow-delay="400ms"
+                    bis_skin_checked="1" style="visibility: visible; animation-delay: 400ms; animation-name: g;">
+                    <h3>3. Advanced Robotic & Minimally Invasive Surgery Program</h3>
+                    <p>Kaizen is one of the few centres in India with a robust robotic surgery program, completing
+                        200+ successful robotic GI procedures using India’s advanced indigenous robotic platform,
+                        the SSi Mantra 3.0. With high-definition 3D vision, tremor filtration, and unmatched
+                        precision.</p>
+                    <div class="list">
+                        <li>Smaller incisions</li>
+                        <li>Less pain and blood loss</li>
+                        <li>Lower complications</li>
+                        <li>Faster recobery</li>
+                        <li>Superior outcomes in complex surgeries</li>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 wow fadeInUp animated" data-wow-delay="400ms"
+                    bis_skin_checked="1" style="visibility: visible; animation-delay: 400ms; animation-name: g;">
+                    <img src="assets/img/about/atlas.png" alt="Robotic Surgery Kaizen" class="w-100 rounded-3">
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-12 col-md-12 col-sm-12 wow fadeInUp animated" data-wow-delay="400ms"
+                    bis_skin_checked="1" style="visibility: visible; animation-delay: 400ms; animation-name: g;">
+                    <h3>4. Comprehensive Care Under One Roof </h3>
+                    <p>From diagnosis to minimally invasive treatment and long-term follow-up, Kaizen offers a
+                        fully integrated ecosystem: </p>
+                    <div class="list">
+                        <li>State-of-the-art operating rooms </li>
+                        <li>Endoscopy & ERCP suites</li>
+                        <li>Advanced imaging – including CT Scan</li>
+                        <li>Functional Labs – 24 hr pH Impedance monitoring & Manometry </li>
+                        <li>Intensive care and recovery units</li>
+                        <li>Nutritional, rehabilitation and counselling services</li>
+                    </div>
+                    <p>This seamless coordination ensures accuracy, safety, and convenience for every patient.</p>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-lg-12 col-md-12 col-sm-12 wow fadeInUp animated" data-wow-delay="400ms"
+                    bis_skin_checked="1" style="visibility: visible; animation-delay: 400ms; animation-name: g;">
+                    <h3>5. Excellence in GI Oncology & Complex Surgeries</h3>
+                    <p>Kaizen Hospital is one of the few centres capable of handling highly complex GI cancers,
+                        liver resections, pancreatic surgeries, major colorectal procedures, and re-operative
+                        cases with outstanding outcomes. Our multi-disciplinary discussions and evidence-based
+                        decision making ensures personalised care. </p>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-lg-12 col-md-12 col-sm-12 wow fadeInUp animated" data-wow-delay="400ms"
+                    bis_skin_checked="1" style="visibility: visible; animation-delay: 400ms; animation-name: g;">
+                    <h3>6. Innovation, Education, and Research</h3>
+                    <p>Kaizen is a hub of innovation: </p>
+                    <div class="list">
+                        <li>Development of novel surgical instruments and techniques </li>
+                        <li>Leadership in surgical education through workshops, courses, under the aegis of
+                            Haribhakti Education Foundation</li>
+                        <li>Creation of India’s first Robotic GI Surgery Atlas</li>
+                        <li>Collaboration with global and national experts </li>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-lg-12 col-md-12 col-sm-12 wow fadeInUp animated" data-wow-delay="400ms"
+                    bis_skin_checked="1" style="visibility: visible; animation-delay: 400ms; animation-name: g;">
+                    <h3>7. Patient-Centric Philosophy</h3>
+                    <p>Every decision at Kaizen is driven by one principle: patients first.​
+                        We emphasise:</p>
+                    <div class="list">
+                        <li>Clear communication </li>
+                        <li>Empathy and respect</li>
+                        <li>Transparency in care</li>
+                        <li>Individualised treatment planning </li>
+                        <li>Holistic support for patients and families</li>
+                    </div>
+                    <p>Our hospital environment, nursing care, and post-operative guidance ensure a healing
+                        experience that is both scientific and humane. </p>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-lg-12 col-md-12 col-sm-12 wow fadeInUp animated" data-wow-delay="400ms"
+                    bis_skin_checked="1" style="visibility: visible; animation-delay: 400ms; animation-name: g;">
+                    <h3>8. Consistently High Clinical Outcomes</h3>
+                    <p>Years of focused practice, experienced leadership, and meticulous protocols result in: </p>
+                    <div class="list">
+                        <li>High surgery success rates </li>
+                        <li>Low complication rates </li>
+                        <li>Fast recovery</li>
+                        <li>Minimal readmissions </li>
+                        <li>Excellent patient satisfaction scores</li>
+                    </div>
+                    <p>These outcomes reflect our unwavering commitment to quality.</p>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-lg-12 col-md-12 col-sm-12 wow fadeInUp animated" data-wow-delay="400ms"
+                    bis_skin_checked="1" style="visibility: visible; animation-delay: 400ms; animation-name: g;">
+                    <h3>9. Trusted by Thousands</h3>
+                    <p>From across Gujarat, India, and abroad, patients choose Kaizen Hospital for its reputation,
+                        integrity, and uncompromising standards. Since 2011, “Kaizen” has become synonymous
+                        with specialised GI care delivered with compassion and competence. </p>
+                </div>
+            </div>
+    </section>
+
+
+    <!--==============================
+			Footer Area
+	==============================-->
+    <footer class="footer-wrapper footer-layout1" data-bg-src="assets/img/bg/bg-shape-4.png">
+        <div class="container">
+            <div class="footer-top">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-sm-6 col-md-auto text-center text-sm-start">
+                        <div class="footer1-logo bg-white">
+                            <a href="index.html"><img src="assets/img/logo.png" alt="Logo"></a>
+                        </div>
+                    </div>
+                    <div class=" col-sm-6 col-md-auto pt-20 pt-sm-0 pb-20 pb-sm-0 text-center text-sm-end">
+                        <div class="footer-social">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="far fa-basketball-ball"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="widget-area">
+            <div class="container">
+                <div class="row justify-content-between">
+                    <div class="col-md-4 col-lg-3 col-xl-3">
+                        <div class="widget footer-widget  ">
+                            <h3 class="widget_title">Home</h3>
+                            <div class="vs-widget-about">
+                                <p> Kaizen Hospital, 132 Feet Ring Rd, nr. Helmet Circle, Memnagar, Ahmedabad, Gujarat
+                                    380052</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-auto col-xl-auto">
+                        <div class="widget footer-widget widget_nav_menu   ">
+                            <h3 class="widget_title">Tabs</h3>
+                            <div class="menu-all-pages-container">
+                                <ul class="menu">
+                                    <li><a href="#">HARGiS Atlas</a></li>
+                                    <li><a href="#">Chapters</a></li>
+                                    <li><a href="#">Videos</a></li>
+                                    <li><a href="#">TOC</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright bg-theme">
+            <div class="container">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-auto text-center text-md-end">
+                        <p class="mb-0 text-white">Copyright <i class="fal fa-copyright"></i> 2026<a class="text-white"
+                                href="index.html">Robotic GI Surgery</a>. All rights reserved by <a class="text-white"
+                                href="#">Kaizen Hospital</a>.</p>
+                    </div>
+                    <div class="col-auto d-none d-md-block">
+                        <ul class="footer-bottom-menu">
+                            <li><a href="#">Privacy & Policy</a></li>
+                            <li><a href="#">Terms & Condition</a></li>
+                            <!-- <li><a href="#">Contact</a></li> -->
+                            <!-- <li><a href="#">About</a></li> -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!--********************************
+			Code End  Here 
+	******************************** -->
+
+
+    <!-- Scroll To Top -->
+    <a href="#" class="scrollToTop scroll-bottom  style2"><i class="fas fa-arrow-alt-up"></i></a>
+
+
+
+    <!--==============================
+        All Js File
+    ============================== -->
+    <!-- Jquery -->
+    <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
+    <!-- Slick Slider -->
+    <script src="assets/js/slick.min.js"></script>
+    <!-- <script src="assets/js/app.min.js"></script> -->
+    <!-- Layerslider -->
+    <script src="assets/js/layerslider.utils.js"></script>
+    <script src="assets/js/layerslider.transitions.js"></script>
+    <script src="assets/js/layerslider.kreaturamedia.jquery.js"></script>
+    <!-- Bootstrap -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- jQuery Datepicker -->
+    <script src="assets/js/jquery.datetimepicker.min.js"></script>
+    <!-- Magnific Popup -->
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <!-- Isotope Filter -->
+    <script src="assets/js/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/js/isotope.pkgd.min.js"></script>
+    <!-- Parallax Scroll -->
+    <script src="assets/js/universal-parallax.min.js"></script>
+    <!-- WOW Animation -->
+    <script src="assets/js/wow.min.js"></script>
+    <!-- Custom Carousel -->
+    <script src="assets/js/vscustom-carousel.min.js"></script>
+    <!-- Form Js -->
+    <script src="assets/js/ajax-mail.js"></script>
+    <!-- Main Js File -->
+    <script src="assets/js/main.js"></script>
+
+    <script>
+        var counterContainer = document.querySelector(".website-counter");
+        var resetButton = document.querySelector("#reset");
+        var visitCount = localStorage.getItem("page_view");
+
+        // Check if page_view entry is present
+        if (visitCount) {
+            visitCount = Number(visitCount) + 1;
+            localStorage.setItem("page_view", visitCount);
+        } else {
+            visitCount = 1;
+            localStorage.setItem("page_view", 1);
+        }
+        counterContainer.innerHTML = visitCount;
+
+        // Adding onClick event listener
+        resetButton.addEventListener("click", () => {
+            visitCount = 1;
+            localStorage.setItem("page_view", 1);
+            counterContainer.innerHTML = visitCount;
+        });
+    </script>
+    <script>
+        const flipBook = (elBook) => {
+            elBook.style.setProperty("--c", 0); // Set current page
+            elBook.querySelectorAll(".page").forEach((page, idx) => {
+                page.style.setProperty("--i", idx);
+                page.addEventListener("click", (evt) => {
+                    if (evt.target.closest("a")) return;
+                    const curr = evt.target.closest(".back") ? idx : idx + 1;
+                    elBook.style.setProperty("--c", curr);
+                });
+            });
+        };
+
+        document.querySelectorAll(".book").forEach(flipBook);
+    </script>
+</body>
+
+</html>

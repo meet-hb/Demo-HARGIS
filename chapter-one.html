@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>RGS-Robotic GI Surgery</title>
+    <meta name="author" content="Vecuro">
+    <meta name="description" content="Medixi - Medical and Health Care HTML Template">
+    <meta name="keywords" content="Medixi - Medical and Health Care HTML Template">
+    <meta name="robots" content="INDEX,FOLLOW">
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--==============================
+	   Google Web Fonts
+	============================== -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&amp;family=Quicksand:wght@400;700&amp;family=Roboto:wght@400;500;700&amp;display=swap"
+        rel="stylesheet">
+    <!-- Favicons - Place favicon.ico in the root directory -->
+    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+    <link rel="icon" href="assets/img/favicon.png" type="image/x-icon">
+    <!--==============================
+	    All CSS File
+	============================== -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="assets/css/app.min.css"> -->
+    <!-- Fontawesome Icon -->
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+    <!-- Layerslider -->
+    <link rel="stylesheet" href="assets/css/layerslider.min.css">
+    <!-- jQuery DatePicker -->
+    <link rel="stylesheet" href="assets/css/jquery.datetimepicker.min.css">
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="assets/css/magnific-popup.min.css">
+    <!-- Slick Slider -->
+    <link rel="stylesheet" href="assets/css/slick.min.css">
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="assets/css/animate.min.css">
+    <!-- Theme Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<style>
+    .vs-btn {
+        font-size: 16px;
+        padding: 19.5px 48px;
+
+    }
+
+    .book {
+        position: relative;
+        display: flex;
+        margin: auto;
+        width: 40cqmin;
+        /*1* let pointer event go trough pages of lower Z than .book */
+        pointer-events: none;
+        transform-style: preserve-3d;
+        transition: translate 1s;
+        translate: calc(min(var(--c), 1) * 50%) 0%;
+        /* Incline on the X axis for pages preview */
+        rotate: 1 0 0 30deg;
+    }
+
+    .page {
+        /* PS: Don't go below thickness 0.5 or the pages might transpare */
+        --thickness: 4;
+        flex: none;
+        display: flex;
+        width: 100%;
+        font-size: 2cqmin;
+        /*1* allow pointer events on pages */
+        pointer-events: all;
+        user-select: none;
+        transform-style: preserve-3d;
+        transform-origin: left center;
+        transition:
+            transform 1s,
+            rotate 1s ease-in calc((min(var(--i), var(--c)) - max(var(--i), var(--c))) * 50ms);
+        translate: calc(var(--i) * -100%) 0px 0px;
+        transform: translateZ(calc((var(--c) - var(--i) - 0.5) * calc(var(--thickness) * .23cqmin)));
+        rotate: 0 1 0 calc(clamp(0, var(--c) - var(--i), 1) * -180deg);
+    }
+
+    .front,
+    .back {
+        position: relative;
+        flex: none;
+        width: 100%;
+        backface-visibility: hidden;
+        overflow: hidden;
+        background-color: #fff;
+        /* Fix backface visibility Firefox: */
+        translate: 0px;
+    }
+
+    .back {
+        translate: -100% 0;
+        rotate: 0 1 0 180deg;
+    }
+
+
+    /* That's it. Your FlipBook customization styles: */
+
+    .book {
+        counter-reset: page -1;
+
+        & a {
+            color: inherit;
+        }
+    }
+
+    .page {
+        box-shadow: 0em .5em 1em -.2em #00000020;
+    }
+
+    .front,
+    .back {
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: space-between;
+        padding: 2em;
+        border: 1px solid #0002;
+
+        &:has(img) {
+            padding: 0;
+        }
+
+        & img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        &::after {
+            position: absolute;
+            bottom: 1em;
+            counter-increment: page;
+            content: counter(page) ".";
+            font-size: 0.8em;
+        }
+    }
+
+    .cover {
+        &::after {
+            content: "";
+        }
+    }
+
+    .front {
+        &::after {
+            right: 1em;
+        }
+
+        background: linear-gradient(to left, #f7f7f7 80%, #eee 100%);
+        border-radius: .1em .5em .5em .1em;
+    }
+
+    .back {
+        &::after {
+            left: 1em;
+        }
+
+        background-image: linear-gradient(to right, #f7f7f7 80%, #eee 100%);
+        border-radius: .5em .1em .1em .5em;
+    }
+
+    .cover {
+        background: radial-gradient(circle farthest-corner at 80% 20%, hsl(150 80% 20% / .3) 0%, hsl(170 60% 10% / .1) 100%),
+            hsl(231, 32%, 29%) url("https://picsum.photos/id/984/800/900") 50% / cover;
+        color: hsl(200 30% 98%);
+    }
+
+    .books {
+        margin: 0;
+        display: flex;
+        min-height: 100dvh;
+        perspective: 1000px;
+        font: 1em/1.4 "Poppins", sans-serif;
+        overflow: hidden;
+        color: hsl(180 68% 5%);
+        background-image: radial-gradient(circle farthest-corner at 50% 50%, hsl(187 20% 88%) 30%, hsl(149 20% 94%) 100%);
+    }
+
+    .about-img1 .play-btn {
+        position: absolute;
+        left: 100px;
+        bottom: 125px;
+    }
+
+    .about-tab-nav .vs-btn.active h5 {
+        color: white;
+    }
+
+    .play-btn {
+        display: inline-block;
+        position: relative;
+        z-index: 1;
+        --icon-size: 70px;
+    }
+
+    .social-login {
+        position: relative;
+        float: left;
+        width: 100%;
+        height: auto;
+        padding: 10px 0 15px 0;
+        border-bottom: 1px solid #eee;
+    }
+
+    .social-login a {
+        position: relative;
+        float: left;
+        width: calc(40% - 8px);
+        text-decoration: none;
+        color: #fff;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        padding: 12px;
+        border-radius: 2px;
+        font-size: 13px;
+        text-transform: uppercase;
+        margin: 0 3%;
+        text-align: center;
+    }
+
+    .social-login a i {
+        /* position: relative;
+  float: left; */
+        width: 50px;
+        top: 2px;
+    }
+
+    .social-login a:first-child {
+        background-color: #49639F;
+    }
+
+    .social-login a:last-child {
+        background-color: #DF4A32;
+    }
+</style>
+
+<body>
+    <!--==============================
+     Preloader
+  ==============================-->
+    <div class="preloader">
+        <!-- <button class="vs-btn preloaderCls">Cancel Preloader </button> -->
+        <div class="preloader-inner">
+            <img src="./assets/img/Demo.png">
+        </div>
+    </div>
+    <!--==============================
+    Mobile Menu
+  ============================== -->
+    <div class="vs-menu-wrapper">
+        <div class="vs-menu-area text-center">
+            <button class="vs-menu-toggle"><i class="fal fa-times"></i></button>
+            <div class="mobile-logo">
+                <a href="index.html"><img src="assets/img/logo.png" alt="Medixi"></a>
+            </div>
+            <form action="#" class="mobile-menu-form">
+                <input type="text" class="form-control" placeholder="Search...">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+            <div class="vs-mobile-menu">
+                <ul>
+                    <li class="menu-item">
+                        <a href="index.html"><span class="has-new-label">Home</a>
+                    <li class="menu-item-has-children">
+                        <a href="about.html">About</a>
+                        <ul class="sub-menu">
+                            <li><a href="About-Kaizen.html">About Kaizen Hospital</a></li>
+                            <li><a href="haribhakti-foundation.html">About Haribhakti Education Foundation</a></li>
+                            <li><a href="about-Dr-team.html">About Dr. SPH & Team Kaizen</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="#">Robotic GI Surgery</a>
+                        <ul class="sub-menu">
+                            <li><a href="atlas-robotic-surgery.html">Atlas of Robotic GI Surgery</a>
+                            </li>
+                            <li><a href="robotic-video-photo.html">Robotic Surgery Photos &
+                                    Videos</a></li>
+                            <!-- <li><a href="#">Why Robotic Surgery?</a></li> -->
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="#">Procedures</a>
+                        <ul class="sub-menu">
+                            <li><a href="robotic-gi-procedures.html">Robotic Procedures</a></li>
+                            <li><a href="Laparoscopic-Procedures.html">Laparoscopic Procedures</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="#">GI Diseases</a>
+                        <ul class="sub-menu">
+                            <li><a href="Explore-GI-Diseases.html">Explore GI Diseases</a></li>
+                            <li><a href="#">Presentations</a></li>
+                            <li><a href="#">DVD Atlas of GI Surgery (2007)</a></li>
+                            <li><a href="#">Books</a></li>
+                            <li><a href="#">Interesting Cases</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="coming-soon.html">Innovations</a>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="#">Publications</a>
+                        <ul class="sub-menu">
+                            <li><a href="#">Books Published</a></li>
+                            <li><a href="#">Research / Academic Content</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="Gallery.html">Gallery</a>
+                        <ul class="sub-menu">
+                            <li><a href="photo-gallery.html">Photo Gallery</a></li>
+                            <li><a href="video-gallery.html">Video Gallery</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--==============================
+    Sidemenu
+    ============================== -->
+    <!--==============================
+    Popup Search Box
+    ============================== -->
+    <div class="popup-search-box d-none d-lg-block  ">
+        <button class="searchClose border-theme text-theme"><i class="fal fa-times"></i></button>
+        <form action="#">
+            <input type="text" class="border-theme" placeholder="What are you looking for">
+            <button type="submit"><i class="fal fa-search"></i></button>
+        </form>
+    </div>
+    <!--==============================
+        Header Area
+    ==============================-->
+    <header class="header-wrapper header-layout1">
+        <!-- Header Top -->
+        <div class="header-top bg-title py-2 d-none d-md-block">
+            <div class="container container-style1 py-1">
+                <div
+                    class="row justify-content-center justify-content-xl-between text-center text-xl-start align-items-center text-white">
+                    <h5 class="text-white p-0 m-0 text-center col-auto">Dr.Haribhakti's Atlas of Robotic GI Surgery
+                        HARGiS</h5>
+                    <h5 class="text-white p-0 m-0 text-center col-auto">Visitor Count: 05</h5>
+                </div>
+            </div>
+        </div>
+        <!-- Sticky Active -->
+        <div class="sticky-wrap">
+            <div class="sticky-active">
+                <!-- Header Main -->
+                <div class="header-main">
+                    <div class="container container-style1 position-relative">
+                        <div class="row align-items-center justify-content-between">
+                            <div class="col-auto">
+                                <div class="header1-logo py-2">
+                                    <a href="index.html"><img src="assets/img/logo.png" alt="Logo"></a>
+                                </div>
+                            </div>
+                            <div class="col text-end text-lg-center">
+                                <nav class="main-menu menu-style1 d-none d-lg-block">
+                                    <ul>
+                                        <li class="menu-item-has-children">
+                                            <a href="#">About</a>
+                                            <ul class="sub-menu">
+                                                <li><a href="Mission-Vision.html">Mission & Vision</a></li>
+                                                <li><a href="HARGiS-Atlas.html">HARGiS Atlas</a></li>
+                                                <li><a href="Editor.html">Editors</a></li>
+                                                <li><a href="Publishers.html">Publishers</a></li>
+                                                <li><a href="Contributors.html">Contributors</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item-has-children">
+                                            <a href="#">Explore HARGiS </a>
+                                            <ul class="sub-menu">
+                                                <li><a href="robotic-gi-procedures.html">Robotic GI Procedures</a></li>
+                                                <li><a href="Fundamentals.html">Fundamentals</a></li>
+                                                <li><a href="Tips-Tricks.html">Tips & Tricks</a></li>
+                                                <li><a href="innovation-hargis.html">Innovations</a></li>
+                                                <!-- <li><a href="#">Why Robotic Surgery?</a></li> -->
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item-has-children mega-menu-wrap">
+                                            <a href="#"><span class="has-new-label">Academic Of HARGIS</a>
+                                            <ul class="mega-menu">
+                                                <li><a href="#">Education & Training</a>
+                                                    <ul>
+                                                        <li><a href="#">Fellowship</a></li>
+                                                        <li><a href="#">Onserves</a></li>
+                                                        <li><a href="#">Kaizen-Con</a></li>
+                                                        <li><a href="#">Lap Skill</a></li>
+                                                        <li><a href="#">CME</a></li>
+                                                        <li><a href="#">GISurgery.info</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="#">Books & Publications</a>
+                                                    <ul>
+                                                        <li><a href="coming-soon.html">Surgical Gastroenterology</a>
+                                                        </li>
+                                                        <li><a href="coming-soon.html">Lap. Colorectal Surgery</a></li>
+                                                        <li><a href="coming-soon.html">Decision making in Gi Surgery</a>
+                                                        </li>
+                                                        <li><a href="coming-soon.html">Big 5 Lessons</a></li>
+                                                        <li><a href="coming-soon.html">Bhagavad Geeta</a></li>
+                                                        <li><a href="coming-soon.html">Publications</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="#">Innovations</a>
+                                                    <ul>
+                                                        <li><a href="#">Haribhakti Retractor</a></li>
+                                                        <li><a href="#">Hammock Retractor</a></li>
+                                                        <li><a href="#">SILS NOTES & VARD ports </a></li>
+                                                        <li><a href="#">Flexi-Suture</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="Patient-Testimonials.html">Patient Testimonials</a>
+                                        </li>
+                                        <li class="menu-item-has-children">
+                                            <a href="Gallery.html">Gallery</a>
+                                            <ul class="sub-menu">
+                                                <li><a href="Robotic-celebration.html">200+ Robotic Celebration</a></li>
+                                                <li><a href="CM-Event.html">CM Event & COE</a></li>
+                                                <li><a href="photo-gallery.html">Photos</a></li>
+                                                <li><a href="coming-soon.html">Media</a></li>
+                                                <li><a href="coming-soon.html">Events</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="contact.html">Contact Us</a>
+                                        </li>
+
+                                        <!-- <li>
+                                            <a href="#">Contact</a>
+                                        </li> -->
+
+                                    </ul>
+                                </nav>
+
+                                <button class="vs-menu-toggle d-inline-block d-lg-none"><i
+                                        class="fas fa-bars"></i></button>
+                            </div>
+                            <div class="col-auto gap-3 d-none d-lg-flex">
+                                <a href="#" class="icon-btn style3 searchBoxTggler"><i class="far fa-search"></i></a>
+                                <!-- <div class="col-auto d-none-xxxl">
+                                <div class="header-call phone-box d-flex align-items-center style2">
+                                    <a href="tel:66925682596" class="box-icon"><i class="fas fa-phone-alt"></i></a>
+                                    <div class="media-body">
+                                        <span class="fs-xs text-title">Call Anytime</span>
+                                        <p class="h4 fw-bold lh-1 mb-0"><a href="tel:66925682596">669 2568 2596</a></p>
+                                    </div>
+                                </div>
+                            </div> -->
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header-note  d-none d-xl-block">
+                <div class="note-inner">
+                    <div class="container custom-container justify-content-between">
+                        <div class="col-auto">
+                            <h2 class="note-text text-white">" Pioneering Precision in GI Surgery "</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </header>
+    <div class="breadcumb-wrapper ">
+        <div class="parallax" data-parallax-image="assets/img/hero/Robotic-Gi-Procedures.png"></div>
+        <div class="container z-index-common">
+            <div class="breadcumb-content">
+                <h1 class="breadcumb-title text-white">Chapter 1</h1>
+                <div class="breadcumb-menu-wrap">
+                    <i class="far fa-home-lg"></i>
+                    <ul class="breadcumb-menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li class="active">Chapter 1</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-style6">
+        <ul class="nav about-tab-nav mb-3 mb-xl-4 mt-xl-4 pb-3 pt-4 gap-5" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link vs-btn active" id="menu1-tab" data-bs-toggle="tab" data-bs-target="#menu1"
+                    type="button" role="tab" aria-controls="menu1" aria-selected="true">
+                    <h5 class="m-0">Chapter Videos</h5>
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link vs-btn" id="menu2-tab" data-bs-toggle="tab" data-bs-target="#menu2"
+                    type="button" role="tab" aria-controls="menu2" aria-selected="false">
+                    <h5 class="m-0">Chapter Content</h5>
+                </button>
+            </li>
+        </ul>
+        <div class="tab-content" id="aboutTab">
+            <div class="tab-pane fade show active" id="menu1" role="tabpanel" aria-labelledby="menu1-tab">
+                <!-- testimonial-section -->
+                <section class="testimonial-section-two space">
+                    <div class="container-style6">
+
+                        <div class="row">
+                            <div class="col-lg-4">
+
+                                <div class="about-img1 wow fadeInUp" data-wow-delay="0.3s">
+                                    <img src="assets/img/about/Cover-page.png" alt="About Image" class="w-75">
+                                    <a href="./assets/img/about/robotic.mp4" class="play-btn popup-video"><i
+                                            class="fas fa-play"></i></a>
+
+                                </div>
+                                <div class="row mt-4">
+                                    <div class="col" style="font-weight: 700;color: #c82027;">Video Duration:
+                                        <span>1min 28second</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-lg-4">
+
+                                <div class="about-img1 wow fadeInUp" data-wow-delay="0.3s">
+                                    <img src="assets/img/about/Cover-page.png" alt="About Image" class="w-75">
+                                    <a href="./assets/img/about/robotic.mp4" class="play-btn popup-video"><i
+                                            class="fas fa-play"></i></a>
+
+                                </div>
+                                <div class="row mt-4">
+                                    <div class="col" style="font-weight: 700;color: #c82027;">Video Duration:
+                                        <span>1min 28second</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-lg-4">
+
+                                <div class="about-img1 wow fadeInUp" data-wow-delay="0.3s">
+                                    <img src="assets/img/about/Cover-page.png" alt="About Image" class="w-75">
+                                    <a href="./assets/img/about/robotic.mp4" class="play-btn popup-video"><i
+                                            class="fas fa-play"></i></a>
+
+                                </div>
+                                <div class="row mt-4">
+                                    <div class="col" style="font-weight: 700;color: #c82027;">Video Duration:
+                                        <span>1min 28second</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="tab-pane fade" id="menu2" role="tabpanel" aria-labelledby="menu2-tab">
+                <div class="row pb-80">
+                    <div class="col-lg-12 mb-4 mb-lg-0">
+                        <h2>View Book or Download PDF</h2>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere, nobis voluptatem quibusdam
+                            dolore corporis repellendus iusto saepe eligendi reiciendis recusandae iure ut omnis, quos
+                            tempora excepturi modi officiis, nostrum deleniti!</p>
+                        <div class="row gap-3">
+                            <div class="col">
+                                <a href="#" data-bs-target="#exampleModalToggle" data-bs-toggle="modal"
+                                    class="vs-btn mt-3"><i class="fas fa-eye"></i>
+                                    View Book</a>
+                            </div>
+                            <div class="col">
+                                <a href="#" target="_blank" class="vs-btn mt-3" data-bs-target="#exampleModalToggle"
+                                    data-bs-toggle="modal"><i class="fas fa-download"></i> Download PDF</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+    <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+        tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <img src="assets/img/logo.png" alt="" class="w-25">
+                    <h1 class="modal-title fs-5 text-center" id="exampleModalToggleLabel">Registration For Download</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+
+                    <div class="row">
+                        <div class="col-md-12 form-group">
+                            <input type="text" class="form-control" placeholder="User Name">
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <input type="text" class="form-control" placeholder="Email Id">
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <input type="password" class="form-control" placeholder="Enter Password" required>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <input type="password" class="form-control" placeholder="Confirm password" required>
+                        </div>
+
+
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="social-login">
+                            <a href="#">
+                                <i class="fab fa-facebook"></i>
+                                Login in with facebook
+                            </a>
+                            <a href="#">
+                                <i class="fab fa-google-plus-g"></i>
+                                log in with Google
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="modal-footer text-center">
+                    <button class="vs-btn text-center" data-bs-target="#exampleModalToggle2"
+                        data-bs-toggle="modal">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--==============================
+			Footer Area
+	==============================-->
+    <!--==============================
+			Footer Area
+	==============================-->
+    <footer class="footer-wrapper footer-layout1" data-bg-src="assets/img/bg/bg-shape-4.png">
+        <div class="container">
+            <div class="footer-top">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-sm-6 col-md-auto text-center text-sm-start">
+                        <div class="footer1-logo bg-white">
+                            <a href="index.html"><img src="assets/img/logo.png" alt="Logo"></a>
+                        </div>
+                    </div>
+                    <div class=" col-sm-6 col-md-auto pt-20 pt-sm-0 pb-20 pb-sm-0 text-center text-sm-end">
+                        <div class="footer-social">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="far fa-basketball-ball"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="widget-area">
+            <div class="container">
+                <div class="row justify-content-between">
+                    <div class="col-md-4 col-lg-3 col-xl-3">
+                        <div class="widget footer-widget  ">
+                            <h3 class="widget_title">Home</h3>
+                            <div class="vs-widget-about">
+                                <p> Kaizen Hospital, 132 Feet Ring Rd, nr. Helmet Circle, Memnagar, Ahmedabad, Gujarat
+                                    380052</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-auto col-xl-auto">
+                        <div class="widget footer-widget widget_nav_menu   ">
+                            <h3 class="widget_title">Tabs</h3>
+                            <div class="menu-all-pages-container">
+                                <ul class="menu">
+                                    <li><a href="#">HARGiS Atlas</a></li>
+                                    <li><a href="#">Chapters</a></li>
+                                    <li><a href="#">Videos</a></li>
+                                    <li><a href="#">TOC</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright bg-theme">
+            <div class="container">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-auto text-center text-md-end">
+                        <p class="mb-0 text-white">Copyright <i class="fal fa-copyright"></i> 2026<a class="text-white"
+                                href="index.html">Robotic GI Surgery</a>. All rights reserved by <a class="text-white"
+                                href="#">Kaizen Hospital</a>.</p>
+                    </div>
+                    <div class="col-auto d-none d-md-block">
+                        <ul class="footer-bottom-menu">
+                            <li><a href="#">Privacy & Policy</a></li>
+                            <li><a href="#">Terms & Condition</a></li>
+                            <!-- <li><a href="#">Contact</a></li> -->
+                            <!-- <li><a href="#">About</a></li> -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!--********************************
+			Code End  Here 
+	******************************** -->
+    <!--********************************
+			Code End  Here 
+	******************************** -->
+    <!-- Scroll To Top -->
+    <a href="#" class="scrollToTop scroll-bottom  style2"><i class="fas fa-arrow-alt-up"></i></a>
+    <!--==============================
+        All Js File
+    ============================== -->
+    <!-- Jquery -->
+    <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
+    <!-- Slick Slider -->
+    <script src="assets/js/slick.min.js"></script>
+    <!-- <script src="assets/js/app.min.js"></script> -->
+    <!-- Layerslider -->
+    <script src="assets/js/layerslider.utils.js"></script>
+    <script src="assets/js/layerslider.transitions.js"></script>
+    <script src="assets/js/layerslider.kreaturamedia.jquery.js"></script>
+    <!-- Bootstrap -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- jQuery Datepicker -->
+    <script src="assets/js/jquery.datetimepicker.min.js"></script>
+    <!-- Magnific Popup -->
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <!-- Isotope Filter -->
+    <script src="assets/js/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/js/isotope.pkgd.min.js"></script>
+    <!-- Parallax Scroll -->
+    <script src="assets/js/universal-parallax.min.js"></script>
+    <!-- WOW Animation -->
+    <script src="assets/js/wow.min.js"></script>
+    <!-- Custom Carousel -->
+    <script src="assets/js/vscustom-carousel.min.js"></script>
+    <!-- Form Js -->
+    <script src="assets/js/ajax-mail.js"></script>
+    <!-- Main Js File -->
+    <script src="assets/js/main.js"></script>
+
+    <script>
+        var counterContainer = document.querySelector(".website-counter");
+        var resetButton = document.querySelector("#reset");
+        var visitCount = localStorage.getItem("page_view");
+
+        // Check if page_view entry is present
+        if (visitCount) {
+            visitCount = Number(visitCount) + 1;
+            localStorage.setItem("page_view", visitCount);
+        } else {
+            visitCount = 1;
+            localStorage.setItem("page_view", 1);
+        }
+        counterContainer.innerHTML = visitCount;
+
+        // Adding onClick event listener
+        resetButton.addEventListener("click", () => {
+            visitCount = 1;
+            localStorage.setItem("page_view", 1);
+            counterContainer.innerHTML = visitCount;
+        });
+
+
+
+
+
+
+
+        const flipBook = (elBook) => {
+            elBook.style.setProperty("--c", 0); // Set current page
+            elBook.querySelectorAll(".page").forEach((page, idx) => {
+                page.style.setProperty("--i", idx);
+                page.addEventListener("click", (evt) => {
+                    if (evt.target.closest("a")) return;
+                    const curr = evt.target.closest(".back") ? idx : idx + 1;
+                    elBook.style.setProperty("--c", curr);
+                });
+            });
+        };
+
+        document.querySelectorAll(".book").forEach(flipBook);
+    </script>
+
+</body>
+
+</html>
