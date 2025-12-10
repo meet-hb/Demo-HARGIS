@@ -49,6 +49,10 @@
         padding: 19.5px 48px;
 
     }
+    .space,
+    .space-top {
+        padding-top: 40px;
+    }
 
     .book {
         position: relative;
@@ -186,8 +190,8 @@
 
     .about-img1 .play-btn {
         position: absolute;
-        left: 100px;
-        bottom: 125px;
+        left: 240px;
+        bottom: 173px;
     }
 
     .about-tab-nav .vs-btn.active h5 {
@@ -238,6 +242,14 @@
 
     .social-login a:last-child {
         background-color: #DF4A32;
+    }
+
+    .video-box .video-title {
+        font-size: 16px;
+        color: var(--white-color);
+        font-weight: 400;
+        max-width: 400px;
+        margin: 0 auto;
     }
 </style>
 
@@ -510,18 +522,26 @@
                 <section class="testimonial-section-two space">
                     <div class="container-style6">
 
-                        <div class="row">
-                            <div class="col-lg-4">
-
-                                <div class="about-img1 ">
-                                    <img src="assets/img/about/Cover-page.png" alt="About Image" class="w-75">
-                                    <a href="./assets/img/about/robotic.mp4" class="play-btn popup-video"><i
-                                            class="fas fa-play"></i></a>
-
+                        <div class="row text-center">
+                            <div class="col-lg-6">
+                                <div class="video-box">
+                                    <div class="video-thumb" data-overlay="theme3" data-opacity="7"
+                                        bis_skin_checked="1"><img src="assets/img/about/Video Banner.png"
+                                            alt="video-thumb"></div>
+                                    <div class="video-content" bis_skin_checked="1">
+                                        <h3 class="text-white">Fundamentals of Robotic Surgery</h3>
+                                        <a href="./assets/img/about/robotic.mp4" class="play-btn style4"><i
+                                                class="fas fa-play"></i></a>
+                                        <p class="video-title"><a class="text-inherit" href="#">General Principles of
+                                                Robotic Surgery using SSi Mantra system</a>
+                                        </p>
+                                    </div>
                                 </div>
                                 <div class="row mt-4">
-                                    <div class="col" style="font-weight: 700;color: #c82027;">Author
-                                        <span>Dr. Sanjiv Haribhakti</span>
+                                    <div class="col" style="font-weight: 700;color: #c82027;">
+                                        <h3>Author
+                                            <span>Dr. Sanjiv Haribhakti</span>
+                                        </h3>
                                     </div>
                                 </div>
 

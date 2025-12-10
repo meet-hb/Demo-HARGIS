@@ -4318,7 +4318,7 @@ textarea.form-control.is-invalid {
   font-family: var(--body-font);
   font-weight: 600;
   color: #16478d;
-  font-size: 18px;
+  font-size: 16px;
   /* Large devices */
 }
 @media (max-width: 1199px) {
