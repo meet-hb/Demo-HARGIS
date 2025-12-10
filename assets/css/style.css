@@ -7171,8 +7171,8 @@ textarea.form-control.is-invalid {
 }
 
 .breadcumb-title {
-  font-size: 60px;
-  margin-top: -0.3em;
+    font-size: 60px;
+    margin-top: -2.0em;
 }
 
 .breadcumb-menu-wrap {
