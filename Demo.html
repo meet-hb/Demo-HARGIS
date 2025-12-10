@@ -1,68 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PDF Flipbook</title>
+    <title>Perfect Flipbook</title>
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Turn.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/4.1.0/turn.min.js"></script>
+    <!-- PageFlip CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/page-flip/dist/page-flip.css">
 
     <style>
-        #flipbook {
-            width: 900px;
-            height: 600px;
-            margin: auto;
+        body {
+            background: #e5e5e5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
         }
-        #flipbook .page {
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
+
+        #book {
+            width: 700px;
+            height: 450px;
+        }
+
+        .page {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            font-weight: bold;
+            background: white;
         }
     </style>
 </head>
-<body class="bg-light">
 
-    <div class="container py-5">
-        <div class="text-center mb-4">
-            <h3 class="fw-bold">PDF Flipbook Viewer</h3>
-            <button class="btn btn-primary mt-3" onclick="downloadPDF()">Download PDF</button>
-        </div>
+<body>
 
-        <!-- Flipbook Frame -->
-        <div class="card shadow-lg p-4">
-            <div id="flipbook">
-                <div class="page"><img src="page1.jpg" class="img-fluid w-100 h-100"></div>
-                <div class="page"><img src="page2.jpg" class="img-fluid w-100 h-100"></div>
-                <div class="page"><img src="page3.jpg" class="img-fluid w-100 h-100"></div>
-                <div class="page"><img src="page4.jpg" class="img-fluid w-100 h-100"></div>
-            </div>
-        </div>
-    </div>
+    <div id="book"></div>
 
-    <!-- jQuery (Required by Turn.js) -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- PageFlip JS -->
+    <script src="https://unpkg.com/page-flip/dist/page-flip.browser.min.js"></script>
 
-    <!-- Initialize Flipbook -->
     <script>
-        $(document).ready(function () {
-            $('#flipbook').turn({
-                width: 900,
-                height: 600,
-                autoCenter: true,
-                elevation: 50,
-                gradients: true
-            });
+        const flipbook = new PageFlip(document.getElementById("book"), {
+            width: 350,          // page width
+            height: 450,         // page height
+            size: "stretch",
+            minWidth: 300,
+            maxWidth: 1000,
+            showCover: true,
+            mobileScrollSupport: true,
         });
 
-        function downloadPDF() {
-            window.open("yourfile.pdf", "_blank");
-        }
+        flipbook.loadFromHTML([
+            `<div class="page">Cover Page</div>`,
+            `<div class="page">Page 1</div>`,
+            `<div class="page">Page 2</div>`,
+            `<div class="page">Page 3</div>`,
+            `<div class="page">Last Page</div>`
+        ]);
     </script>
 
 </body>
+
 </html>
