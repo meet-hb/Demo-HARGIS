@@ -204,8 +204,7 @@
         Header Area
     ==============================-->
     <header class="header-wrapper header-layout1">
-        <!-- Header Top -->
-       
+
         <!-- Sticky Active -->
         <div class="sticky-wrap">
             <div class="sticky-active">
@@ -236,7 +235,15 @@
                                                         <li><a href="Co-Editor.html">SSI Innovations</a></li>
                                                     </ul>
                                                 </li>
-                                                <li><a href="Foreword.html">Foreword</a></li>
+                                                <li class="menu-item-has-children">
+                                                    <a href="Foreword.html">Foreword</a>
+                                                    <ul class="sub-menu">
+                                                        <li><a href="#">Fred Moll</a></li>
+                                                        <li><a href="#"> Mahendra Bhandari</a>
+                                                        </li>
+                                                    </ul>
+                                                
+                                                </li>
                                                 <li><a href="Contributors.html">Contributors</a></li>
                                             </ul>
                                         </li>
@@ -296,24 +303,12 @@
                                         </li> -->
                                     </ul>
                                 </nav>
-
                                 <button class="vs-menu-toggle d-inline-block d-lg-none"><i
                                         class="fas fa-bars"></i></button>
                             </div>
                             <div class="col-auto gap-3 d-none d-lg-flex">
                                 <a href="#" class="icon-btn style3 searchBoxTggler"><i class="far fa-search"></i></a>
-                                <!-- <div class="col-auto d-none-xxxl">
-                                <div class="header-call phone-box d-flex align-items-center style2">
-                                    <a href="tel:66925682596" class="box-icon"><i class="fas fa-phone-alt"></i></a>
-                                    <div class="media-body">
-                                        <span class="fs-xs text-title">Call Anytime</span>
-                                        <p class="h4 fw-bold lh-1 mb-0"><a href="tel:66925682596">669 2568 2596</a></p>
-                                    </div>
-                                </div>
-                            </div> -->
                             </div>
-
-
                         </div>
                     </div>
                 </div>
@@ -460,9 +455,6 @@
     <!--==============================
 			Footer Area
 	==============================-->
-    <!--==============================
-			Footer Area
-	==============================-->
     <footer class="footer-wrapper footer-layout1" data-bg-src="assets/img/bg/bg-shape-4.png">
         <div class="container">
             <div class="footer-top">
@@ -476,7 +468,7 @@
                         <div class="footer-social">
                             <a href="#"><i class="fab fa-facebook-f"></i></a>
                             <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="far fa-basketball-ball"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
                             <a href="#"><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
@@ -486,16 +478,29 @@
         <div class="widget-area">
             <div class="container">
                 <div class="row justify-content-between">
-                    <div class="col-md-4 col-lg-3 col-xl-3">
-                        <div class="widget footer-widget  ">
-                            <h3 class="widget_title">Home</h3>
+                    <div class="col-md-3 col-lg-3 col-xl-3">
+                        <div class="widget footer-widget">
                             <div class="vs-widget-about">
-                                <p> Kaizen Hospital, 132 Feet Ring Rd, nr. Helmet Circle, Memnagar, Ahmedabad, Gujarat
-                                    380052</p>
+                                <p> Kaizen Hospital (A Unit of G.I. Healthcare Pvt. Ltd.)
+                                    132 Feet Ring Road, Near Helmet Cross Road,
+                                    Memnagar, Ahmedabad – 380052, Gujarat, India. </p>
+                                <p><a class="text-white" href="tel:+91 98240 40044"><i
+                                            class="fas fa-phone-volume me-2 pe-1"></i> +91 98240 40044</a></p>
+                                <p><a class="text-white" href="mailto:atlasofroboticgisurgery@gmail.com"><i
+                                            class="fas fa-envelope"></i> atlasofroboticgisurgery@gmail.com </a></p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 col-lg-auto col-xl-auto">
+                    <div class="col-md-6 col-lg-6 col-xl-6">
+                        <div class="logos d-flex align-items-center gap-5">
+                            <a href="https://www.kaizenhospital.com/" target="_blank"><img
+                                    src="assets/img/about/Kaizen.jpg"></a>
+                            <a href="https://gisurgery.info/ " target="_blank"><img src="assets/img/about/HEF.png"></a>
+                            <a href="https://ssinnovations.com/ " target="_blank"><img
+                                    src="assets/img/about/ssi.jpg"></a>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-lg-auto col-xl-auto">
                         <div class="widget footer-widget widget_nav_menu   ">
                             <h3 class="widget_title">Tabs</h3>
                             <div class="menu-all-pages-container">
@@ -527,11 +532,14 @@
                             <!-- <li><a href="#">About</a></li> -->
                         </ul>
                     </div>
+                    <div class="col-auto d-none d-md-block">
+                        <p class="mb-0 text-white d-flex">Website Visits: <span class="website-counter"></span>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
     </footer>
-
     <!--********************************
 			Code End  Here 
 	******************************** -->
