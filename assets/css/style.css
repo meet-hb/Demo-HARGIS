@@ -9662,7 +9662,7 @@ blockquote cite:before {
 }
 
 .about-tab-nav {
-  border-bottom: 1px solid #efefef;
+  /* border-bottom: 1px solid #efefef; */
   padding-bottom: 0 !important;
   margin-top: 12px !important;
 }
