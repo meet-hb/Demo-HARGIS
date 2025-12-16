@@ -14,7 +14,7 @@
     <script type="text/javascript" src="assets/flipbook/extras/jquery-ui-1.8.20.full.min.js"></script>
     <script type="text/javascript" src="assets/flipbook/extras/modernizr.2.5.3.min.js"></script>
     <script type="text/javascript" src="assets/flipbook/lib/hash.js"></script>
-    
+
     <style>
         body {
             overflow-y: scroll;
@@ -49,22 +49,27 @@
             min-width: 74px;
             resize: vertical;
         }
+
         .form-element1 {
             margin-top: 10px;
             margin-bottom: 12px;
             margin-left: 65px;
         }
+
         @media only screen and (max-width: 750px) {
             .flipbook-title {
                 display: none !important;
             }
+
             .zoom-icon {
                 display: none;
             }
+
             .controls-pdf {
                 right: 20px !important;
             }
         }
+
         #ads {
             z-index: 100;
             position: fixed;
@@ -75,6 +80,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="logo-backs"></div>
     <audio id="audio" src="assets/flipbook/pics/page-flip.mp3"></audio>
@@ -94,10 +100,10 @@
                         src="assets/flipbook/pics/zoomout.png" />
                 </a>
             </div>
-            <a href="./assets/img/about/chapter-one.pdf" target="_blank"><img
-                    style="display:none;" src="assets/flipbook/pics/down-pdf.png" /></a>
+            <a href="./assets/img/about/chapter-one.pdf" target="_blank"><img style="display:none;"
+                    src="assets/flipbook/pics/down-pdf.png" /></a>
             <!-- <div class="zoom-icon zoom-icon-in"></div> -->
-            <!-- <input type="image" class="fs" src="flipbook/pics/fs.png" onclick="openFullscreen();" /> --> 
+            <!-- <input type="image" class="fs" src="flipbook/pics/fs.png" onclick="openFullscreen();" /> -->
         </div>
         <div class="magazine-viewport" id="flipfull">
             <div class="container">
