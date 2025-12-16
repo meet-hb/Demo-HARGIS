@@ -581,15 +581,12 @@
         tabindex="-1">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
-
                 <div class="modal-header">
                     <img src="assets/img/logo.png" alt="" class="w-25">
                     <h1 class="modal-title fs-5 text-center" id="exampleModalToggleLabel">Registration For Download</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-
-
                     <div class="row">
                         <div class="col-md-12 form-group">
                             <input type="text" class="form-control" placeholder="User Name">
@@ -598,13 +595,13 @@
                             <input type="text" class="form-control" placeholder="Email Id">
                         </div>
                         <div class="col-md-12 form-group">
-                            <input type="password" class="form-control" placeholder="Enter Password" required>
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Select Country</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
                         </div>
-                        <div class="col-md-12 form-group">
-                            <input type="password" class="form-control" placeholder="Confirm password" required>
-                        </div>
-
-
                     </div>
                     <hr />
                     <div class="row">
@@ -619,10 +616,7 @@
                             </a>
                         </div>
                     </div>
-
                 </div>
-
-
                 <div class="modal-footer text-center">
                     <button class="vs-btn text-center" data-bs-target="#exampleModalToggle2"
                         data-bs-toggle="modal">Submit</button>
