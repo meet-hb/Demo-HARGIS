@@ -45,10 +45,64 @@
 
 <style>
     .vs-btn {
-        font-size: 16px;
-        padding: 19.5px 48px;
+        font-size: 12px;
+        /* padding: 19.5px 48px; */
 
     }
+
+    .Common {
+        font-size: 16px;
+        padding: 19.5px 48px;
+        border-radius: 10px;
+    }
+
+    td a {
+        font-size: 16px;
+        font-weight: 800;
+    }
+
+    td a:hover {
+        color: #c82027;
+    }
+
+    td {
+        align-items: center;
+    }
+
+    thead th {
+        font-size: 25px;
+        color: #c82027;
+        padding: 15px;
+    }
+
+    table td,
+    tr,
+    th {
+        border-color: #fff;
+    }
+
+    .table> :not(:last-child)> :last-child>* {
+        border-bottom-color: #c82027;
+    }
+    .vs-btn {
+    position: relative;
+    display: inline-block;
+    border: none;
+    text-align: center;
+    background-color: #27477d;
+    color: var(--white-color);
+    font-size: 13px;
+    line-height: 1;
+    font-weight: 700;
+    padding: 10.5px 8px;
+    border-radius: 9999px;
+    --icon-shape: 40px;
+    --icon-size: 30px;
+}
+.vs-btn:hover {
+    background-color: #c82027;
+    color: var(--white-color);
+}
 </style>
 
 <body>
@@ -76,60 +130,78 @@
             </form>
             <div class="vs-mobile-menu">
                 <ul>
-                    <li class="menu-item">
-                        <a href="index.html"><span class="has-new-label">Home</a>
                     <li class="menu-item-has-children">
-                        <a href="about.html">About</a>
+                        <a href="#">About</a>
                         <ul class="sub-menu">
-                            <li><a href="About-Kaizen.html">About Kaizen Hospital</a></li>
-                            <li><a href="haribhakti-foundation.html">About Haribhakti Education Foundation</a></li>
-                            <li><a href="about-Dr-team.html">About Dr. SPH & Team Kaizen</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children">
-                        <a href="#">Robotic GI Surgery</a>
-                        <ul class="sub-menu">
-                            <li><a href="atlas-robotic-surgery.html">Atlas of Robotic GI Surgery</a>
+                            <li><a href="Mission-Vision.html">Mission & Vision</a></li>
+                            <li><a href="HARGiS-Atlas.html">HARGiS Atlas</a></li>
+                            <li><a href="Editor.html">Editors</a></li>
+                            <li class="menu-item-has-children">
+                                <a href="Publishers.html">Publishers</a>
+                                <ul class="sub-menu">
+                                    <li><a href="Chief-Editor.html">Haribhakti Education Foundation</a></li>
+                                    <li><a href="Co-Editor.html">Kaizen Hospital</a></li>
+                                    <li><a href="Co-Editor.html">SSI Innovations</a></li>
+                                </ul>
                             </li>
-                            <li><a href="robotic-video-photo.html">Robotic Surgery Photos &
-                                    Videos</a></li>
-                            <!-- <li><a href="#">Why Robotic Surgery?</a></li> -->
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children">
-                        <a href="#">Procedures</a>
-                        <ul class="sub-menu">
-                            <li><a href="robotic-gi-procedures.html">Robotic Procedures</a></li>
-                            <li><a href="Laparoscopic-Procedures.html">Laparoscopic Procedures</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children">
-                        <a href="#">GI Diseases</a>
-                        <ul class="sub-menu">
-                            <li><a href="Explore-GI-Diseases.html">Explore GI Diseases</a></li>
-                            <li><a href="#">Presentations</a></li>
-                            <li><a href="#">DVD Atlas of GI Surgery (2007)</a></li>
-                            <li><a href="#">Books</a></li>
-                            <li><a href="#">Interesting Cases</a></li>
+                            <li><a href="Foreword.html">Foreword</a></li>
+                            <li><a href="Contributors.html">Contributors</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="coming-soon.html">Innovations</a>
+                        <a href="robotic-gi-procedures.html">HARG<span class="text-theme">i</span>S
+                            TOC </a>
                     </li>
-                    <li class="menu-item-has-children">
-                        <a href="#">Publications</a>
-                        <ul class="sub-menu">
-                            <li><a href="#">Books Published</a></li>
-                            <li><a href="#">Research / Academic Content</a></li>
+                    <li class="menu-item-has-children mega-menu-wrap">
+                        <a href="#"><span class="has-new-label">Academics</a>
+                        <ul class="mega-menu">
+                            <li><a href="#">Education & Training</a>
+                                <ul>
+                                    <li><a href="Fellowships.html">Fellowship</a></li>
+                                    <li><a href="Observers.html">Onserves</a></li>
+                                    <li><a href="#">Kaizen-Con</a></li>
+                                    <li><a href="#">Lap Skill</a></li>
+                                    <li><a href="#">CME</a></li>
+                                    <li><a href="#">GISurgery.info</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Books & Publications</a>
+                                <ul>
+                                    <li><a href="Surgical-Gastroenterology.html">Surgical
+                                            Gastroenterology</a>
+                                    </li>
+                                    <li><a href="Lap-Colorectal-Surgery.html">Lap. Colorectal
+                                            Surgery</a></li>
+                                    <li><a href="Gi-Surgery-book.html">Decision making in Gi
+                                            Surgery</a>
+                                    </li>
+                                    <li><a href="Big-5-lesson.html">Big 5 Lessons</a></li>
+                                    <li><a href="Bhagvat-Geeta.html">Bhagavad Geeta</a></li>
+                                    <li><a href="coming-soon.html">Publications</a></li>
+                                </ul>
+                            </li>
                         </ul>
+                    </li>
+                    <li>
+                        <a href="innovation's.html">Innovations</a>
+                    </li>
+                    <li>
+                        <a href="Patient-Testimonials.html">Patient Testimonials</a>
                     </li>
                     <li class="menu-item-has-children">
                         <a href="Gallery.html">Gallery</a>
                         <ul class="sub-menu">
-                            <li><a href="photo-gallery.html">Photo Gallery</a></li>
-                            <li><a href="video-gallery.html">Video Gallery</a></li>
+                            <li><a href="Robotic-celebration.html">200+ Robotic Celebration</a></li>
+                            <li><a href="CM-Event.html">CM Event & COE</a></li>
+                            <li><a href="photo-gallery.html">Photos & Events</a></li>
                         </ul>
                     </li>
+                    <li>
+                        <a href="contact.html">Contact Us</a>
+                    </li>
+                    <!-- <li>
+                                            <a href="#">Contact</a>
+                                        </li> -->
                 </ul>
             </div>
         </div>
@@ -168,34 +240,36 @@
                             <div class="col text-end text-lg-center">
                                 <nav class="main-menu menu-style1 d-none d-lg-block">
                                     <ul>
-
                                         <li class="menu-item-has-children">
                                             <a href="#">About</a>
                                             <ul class="sub-menu">
                                                 <li><a href="Mission-Vision.html">Mission & Vision</a></li>
                                                 <li><a href="HARGiS-Atlas.html">HARGiS Atlas</a></li>
                                                 <li><a href="Editor.html">Editors</a></li>
-                                                <li><a href="Publishers.html">Publishers</a></li>
+                                                <li class="menu-item-has-children">
+                                                    <a href="Publishers.html">Publishers</a>
+                                                    <ul class="sub-menu">
+                                                        <li><a href="Chief-Editor.html">Haribhakti Education
+                                                                Foundation</a></li>
+                                                        <li><a href="Co-Editor.html">Kaizen Hospital</a></li>
+                                                        <li><a href="Co-Editor.html">SSI Innovations</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="Foreword.html">Foreword</a></li>
                                                 <li><a href="Contributors.html">Contributors</a></li>
                                             </ul>
                                         </li>
-                                        <li class="menu-item-has-children">
-                                            <a href="#">Explore HARGiS </a>
-                                            <ul class="sub-menu">
-                                                <li><a href="robotic-gi-procedures.html">Robotic GI Procedures</a></li>
-                                                <li><a href="Fundamentals.html">Fundamentals</a></li>
-                                                <li><a href="Tips-Tricks.html">Tips & Tricks</a></li>
-                                                <li><a href="innovation-hargis.html">Innovations</a></li>
-                                                <!-- <li><a href="#">Why Robotic Surgery?</a></li> -->
-                                            </ul>
+                                        <li>
+                                            <a href="robotic-gi-procedures.html">HARG<span class="text-theme">i</span>S
+                                                TOC </a>
                                         </li>
                                         <li class="menu-item-has-children mega-menu-wrap">
-                                            <a href="#"><span class="has-new-label">Academic Of HARGIS</a>
+                                            <a href="#"><span class="has-new-label">Academics</a>
                                             <ul class="mega-menu">
                                                 <li><a href="#">Education & Training</a>
                                                     <ul>
-                                                        <li><a href="#">Fellowship</a></li>
-                                                        <li><a href="#">Onserves</a></li>
+                                                        <li><a href="Fellowships.html">Fellowship</a></li>
+                                                        <li><a href="Observers.html">Onserves</a></li>
                                                         <li><a href="#">Kaizen-Con</a></li>
                                                         <li><a href="#">Lap Skill</a></li>
                                                         <li><a href="#">CME</a></li>
@@ -204,27 +278,23 @@
                                                 </li>
                                                 <li><a href="#">Books & Publications</a>
                                                     <ul>
-                                                        <li><a href="coming-soon.html">Surgical Gastroenterology</a>
+                                                        <li><a href="Surgical-Gastroenterology.html">Surgical
+                                                                Gastroenterology</a>
                                                         </li>
-                                                        <li><a href="coming-soon.html">Lap. Colorectal Surgery</a></li>
-                                                        <li><a href="coming-soon.html">Decision making in Gi Surgery</a>
+                                                        <li><a href="Lap-Colorectal-Surgery.html">Lap. Colorectal
+                                                                Surgery</a></li>
+                                                        <li><a href="Gi-Surgery-book.html">Decision making in Gi
+                                                                Surgery</a>
                                                         </li>
-                                                        <li><a href="coming-soon.html">Big 5 Lessons</a></li>
-                                                        <li><a href="coming-soon.html">Bhagavad Geeta</a></li>
+                                                        <li><a href="Big-5-lesson.html">Big 5 Lessons</a></li>
+                                                        <li><a href="Bhagvat-Geeta.html">Bhagavad Geeta</a></li>
                                                         <li><a href="coming-soon.html">Publications</a></li>
                                                     </ul>
                                                 </li>
-                                                <li><a href="#">Innovations</a>
-                                                    <ul>
-                                                        <li><a href="#">Haribhakti Retractor</a></li>
-                                                        <li><a href="#">Hammock Retractor</a></li>
-                                                        <li><a href="#">SILS NOTES & VARD ports </a></li>
-                                                        <li><a href="#">Flexi-Suture</a></li>
-
-                                                    </ul>
-                                                </li>
-
                                             </ul>
+                                        </li>
+                                        <li>
+                                            <a href="innovation's.html">Innovations</a>
                                         </li>
                                         <li>
                                             <a href="Patient-Testimonials.html">Patient Testimonials</a>
@@ -234,19 +304,15 @@
                                             <ul class="sub-menu">
                                                 <li><a href="Robotic-celebration.html">200+ Robotic Celebration</a></li>
                                                 <li><a href="CM-Event.html">CM Event & COE</a></li>
-                                                <li><a href="photo-gallery.html">Photos</a></li>
-                                                <li><a href="coming-soon.html">Media</a></li>
-                                                <li><a href="coming-soon.html">Events</a></li>
+                                                <li><a href="photo-gallery.html">Photos & Events</a></li>
                                             </ul>
                                         </li>
                                         <li>
                                             <a href="contact.html">Contact Us</a>
                                         </li>
-
                                         <!-- <li>
                                             <a href="#">Contact</a>
                                         </li> -->
-
                                     </ul>
                                 </nav>
 
@@ -275,193 +341,114 @@
                 <div class="note-inner">
                     <div class="container custom-container justify-content-between">
                         <div class="col-auto">
-                            <h2 class="note-text text-white">" Pioneering Precision in GI Surgery "</h2>
+                            <h2 class="note-text text-white">Where Precision and Innovation Meets Compassion</h2>
                         </div>
                     </div>
                 </div>
             </div>
     </header>
-
-
     <div class="breadcumb-wrapper ">
-        <div class="parallax" data-parallax-image="assets/img/hero/Fundamentals.png"></div>
+        <div class="parallax" data-parallax-image="assets/img/hero/Robotic-Gi-Procedures.png"></div>
         <div class="container z-index-common">
             <div class="breadcumb-content">
-                <h1 class="breadcumb-title text-white">Fundamentals</h1>
+                <h1 class="breadcumb-title text-white">UPPER GI SURGERY</h1>
             </div>
         </div>
     </div>
-
-    <section class="vs-accordion-wrapper space">
+    <section class="vs-accordion-wrapper mb-60">
         <div class="container">
-            <div class="row">
-                <div class="col-xl-6 pb-10 pb-xl-0 mb-50 mb-xl-0">
-                    <div class="about-content">
-                        <h2 class="h1 mb-3">Planning for Robotic Gi Surgery</h2>
-                        <!-- Tab Area -->
-                        <p class="mb-2">Planning for robotic surgery involves both preoperative preparation and in-depth
-                            surgical planning using advanced technology. Patient-specific planning uses preoperative
-                            imaging to customize the procedure, while logistical and team-based planning includes staff
-                            training, equipment setup, and a review of surgeon preferences. Robotic surgery planning
-                            helps ensure precision, efficiency, and safety by detailing the surgical steps and robotic
-                            setup in advance.</p>
-
-                        <h4 class="h1 mb-3">Preoperative and Patient-Specific Planning</h4>
-                        <ul>
-                            <li>
-                                Imaging and simulation: High-resolution imaging like CT or MRI scans is used with
-                                specialized software to create a 3D model of the patient's anatomy.
-                            </li>
-                            <li>
-                                Customized procedure: The surgical plan is customized to the patient's unique anatomy,
-                                allowing surgeons to simulate and rehearse the procedure beforehand.
-                            </li>
-                            <li>
-                                Patient preparation: Patients must follow specific pre-operative instructions, such as
-                                fasting and potentially a bowel prep, as outlined on this Inova page.
-                            </li>
-
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-xl-6">
-                    <img src="assets/img/hero/Planning-for-robotic-surgery.png" alt="image">
+            <div class="row justify-content-center">
+                
+                <div class="col-lg-12">
+                    <table class="table text-center align-items-center">
+                        <thead>
+                            <tr>
+                                <th scope="col">No</th>
+                                <th scope="col" style="text-align: start;">Chapters Name</th>
+                                <th scope="col">Chapters</th>
+                                <th scope="col">Videos</th>
+                                <th scope="col">Downloads</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row"><a href="#">2.1</a></th>
+                                <td style="text-align: start;"><a href="UGIS-2-1.html"> Robotic Fundoplication for hiatal hernia – Dr. Tushar Dave, Dr. Sanjiv Haribhakti</a> <br />
+                               <a href="#">2.1.1 Toupet’s Fundoplication</a><br />
+                               <a href="#">2.1.2 Nissen’s Fundoplication</a><br />
+                               <a href="#">2.1.3 Redo Fundoplication </a><br />
+                            
+                            </td>
+                                <td><a href="#">1</a></td>
+                                <td><a href="#">3</a></td>
+                                <td><a href="#" target="_blank" class="vs-btn"><i class="fas fa-download"></i> Download
+                                        PDF</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><a href="#">2.2</a></th>
+                                <td style="text-align: start;"><a href="UGIS-2-2.html">Robotic Cardiomyotomy for Achalasia Cardia - Dr Raj Gajbhiye, Dr Gayatri Deshpande</a></td>
+                                <td><a href="#">1</a></td>
+                                <td><a href="#">1</a></td>
+                                <td><a href="#" target="_blank" class="vs-btn"><i class="fas fa-download"></i> Download
+                                        PDF</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><a href="#">2.3</a></th>
+                                <td style="text-align: start;"><a href="Funda-1-3.html"> Robotic Esophagectomy for Ca. Esophagus – Dr. Ranjan Parmar, Dr. Sanjiv Haribhakti</a><br />
+                                <a href="#">2.3.1 Robotic Esophagectomy - Dr. Somashekhar, Dr. Kushal Agrawal, Dr. Ashwin KR</a><br />
+                               <a href="#">2.3.2 Robotic Esophagectomy - Dr. Sanjiv Haribhakti</a><br />
+                                </td>
+                                <td><a href="#">1</a></td>
+                                <td><a href="#">2</a></td>
+                                <td><a href="#" target="_blank" class="vs-btn"><i class="fas fa-download"></i> Download
+                                        PDF</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><a href="#">2.4</a></th>
+                                <td style="text-align: start;"><a href="Funda-1-4.html"> Robotic Distal Gastrectomy with handsewn Gastro-duodenostomy for GIST - Dr. Ranjan Parmar, Dr. Sanjiv Haribhakti</a></td>
+                                <td><a href="#">1</a></td>
+                                <td><a href="#">1</a></td>
+                                <td><a href="#" target="_blank" class="vs-btn"><i class="fas fa-download"></i> Download
+                                        PDF</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><a href="#">2.5</a></th>
+                                <td style="text-align: start;"><a href="Funda-1-5.html"> Robotic D2 Near Total Gastrectomy, handsewn Gastro-jejunostomy - Dr. Ranjan Parmar, Dr. Sanjiv Haribhakti</a></td>
+                                <td><a href="#">1</a></td>
+                                <td><a href="#">1</a></td>
+                                <td><a href="#" target="_blank" class="vs-btn"><i class="fas fa-download"></i> Download
+                                        PDF</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><a href="#">2.6</a></th>
+                                <td style="text-align: start;"><a href="Funda-1-6.html"> Robotic PoRSHA flap for large recurrent para-esophageal hiatal hernia – Dr. Tushar Dave, Dr. Sanjiv Haribhakti.</a></td>
+                                <td><a href="#">1</a></td>
+                                <td><a href="#">1</a></td>
+                                <td><a href="#" target="_blank" class="vs-btn"><i class="fas fa-download"></i> Download
+                                        PDF</a></td>
+                            </tr>
+                        </tbody>
+                        <thead>
+                            <tr>
+                                <th scope="col">Total</th>
+                                <th scope="col" style="text-align: start;color: #19468d;">HARG<span
+                                        class="text-theme">i</span>S</th>
+                                
+                                <th scope="col">6</th>
+                                <th scope="col">9</th>
+                                <td><a href="#" target="_blank" class="vs-btn"><i class="fas fa-download"></i> Download All Section PDF</a></td>
+                            </tr>
+                        </thead>
+                    </table>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="vs-accordion-wrapper space">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-6">
-                    <img src="assets/img/hero/Principles-of-port-placements.png" alt="image">
-                </div>
-                <div class="col-xl-6 pb-10 pb-xl-0 mb-50 mb-xl-0">
-                    <div class="about-content">
-                        <h2 class="h1 mb-3">Principles of Port Placements</h2>
-                        <!-- Tab Area -->
-                        <p class="mb-2">The principles of port placement are anatomical landmarks, the "baseball
-                            diamond" or triangulation method, and ergonomics. Anatomical landmarks ensure safety and
-                            access, while triangulation creates a stable working triangle for instruments to achieve
-                            depth perception. Ergonomics are critical for surgeon comfort, enabling natural movements
-                            and minimizing conflicts between instruments. </p>
-
-                        <h4 class="h1 mb-3">Key Principles</h4>
-                        <ul>
-                            <li>
-                                Safety First (Anatomical Consideration): The most critical principle is avoiding injury
-                                to major vessels (aorta, iliac vessels, inferior epigastric arteries), bowel, and
-                                bladder during initial entry and subsequent port placement.
-                            </li>
-                            <li>
-                                Alternative sites like Palmer's point (left upper quadrant, 3 cm below the costal margin
-                                in the midclavicular line) are used in cases of prior umbilical surgeries or suspected
-                                adhesions.
-                            </li>
-                            <li>
-                                Secondary ports should be placed under direct vision to identify and avoid the inferior
-                                epigastric vessels which run vertically along the anterior abdominal wall.
-                            </li>
-
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- service section seven -->
-    <!-- <section class="service-section7 space space-md-bottom-0">
-        <div class="container-style7">
-            <div class="title-area-three text-center  wow fadeInUp" data-wow-delay="400ms">
-                <h2>Common gastrointestinal diseases</h2>
-            </div>
-        </div>
-        <div class="row service-slider-7 wow fadeIn" data-wow-delay="0.3s">
-            <div class="col-lg-4 col-md-12 col-sm-12 wow fadeInUp" data-wow-delay="400ms">
-                <div class="service-card7">
-                    <div class="ser-content7">
-                        <h6 class="title"><a href="#">Gastroesophageal reflux disease (GERD)</a></h6>
-                        <p>A condition where stomach acid flows back into the esophagus.</p>
-
-                    </div>
-                    <div class="service-img7">
-                        <img src="assets/img/service/d-1.png" alt="">
-                        <div class="icon-box"><img src="assets/img/service/ser-icon7-1.png" alt=""></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-12 col-sm-12 wow fadeInUp" data-wow-delay="500ms">
-                <div class="service-card7">
-                    <div class="ser-content7">
-                        <h6 class="title"><a href="#">Irritable bowel syndrome (IBS)</a></h6>
-                        <p>A chronic disorder affecting the stomach and intestines, causing symptoms like pain,
-                            bloating, and changes in bowel habits.</p>
-
-                    </div>
-                    <div class="service-img7">
-                        <img src="assets/img/service/d-2.png" alt="">
-                        <div class="icon-box"><img src="assets/img/service/ser-icon7-2.png" alt=""></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-12 col-sm-12 wow fadeInUp" data-wow-delay="600ms">
-                <div class="service-card7">
-                    <div class="ser-content7">
-                        <h6 class="title"><a href="#">Inflammatory bowel disease (IBD)</a></h6>
-                        <p>A group of chronic inflammatory conditions of the digestive tract, including Crohn's disease
-                            and ulcerative colitis.</p>
-                    </div>
-                    <div class="service-img7">
-                        <img src="assets/img/service/d-3.png" alt="">
-                        <div class="icon-box"><img src="assets/img/service/ser-icon7-3.png" alt=""></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-12 col-sm-12 wow fadeInUp" data-wow-delay="400ms">
-                <div class="service-card7">
-                    <div class="ser-content7">
-                        <h6 class="title"><a href="#">Celiac disease</a></h6>
-                        <p>An autoimmune disorder triggered by consuming gluten, which damages the small intestine.</p>
-                    </div>
-                    <div class="service-img7">
-                        <img src="assets/img/service/d-4.png" alt="">
-                        <div class="icon-box"><img src="assets/img/service/ser-icon7-4.png" alt=""></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-12 col-sm-12 wow fadeInUp" data-wow-delay="500ms">
-                <div class="service-card7">
-                    <div class="ser-content7">
-                        <h6 class="title"><a href="#">Gastroenteritis</a></h6>
-                        <p>An infection and inflammation of the stomach and intestines, often called "stomach flu,"
-                            caused by viruses, bacteria, or parasites.</p>
-                    </div>
-                    <div class="service-img7">
-                        <img src="assets/img/service/d-5.png" alt="">
-                        <div class="icon-box"><img src="assets/img/service/ser-icon7-5.png" alt=""></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-12 col-sm-12 wow fadeInUp" data-wow-delay="600ms">
-                <div class="service-card7">
-                    <div class="ser-content7">
-                        <h6 class="title"><a href="#">Peptic ulcers</a></h6>
-                        <p>Open sores that develop on the lining of the stomach or the first part of the small
-                            intestine.</p>
-                    </div>
-                    <div class="service-img7">
-                        <img src="assets/img/service/d-6.png" alt="">
-                        <div class="icon-box"><img src="assets/img/service/ser-icon7-6.png" alt=""></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-
-     <!--==============================
+    <!--==============================
+			Footer Area
+	==============================-->
+    <!--==============================
 			Footer Area
 	==============================-->
     <footer class="footer-wrapper footer-layout1" data-bg-src="assets/img/bg/bg-shape-4.png">
@@ -533,18 +520,14 @@
         </div>
     </footer>
 
-
-
     <!--********************************
 			Code End  Here 
 	******************************** -->
-
-
+    <!--********************************
+			Code End  Here 
+	******************************** -->
     <!-- Scroll To Top -->
     <a href="#" class="scrollToTop scroll-bottom  style2"><i class="fas fa-arrow-alt-up"></i></a>
-
-
-
     <!--==============================
         All Js File
     ============================== -->
@@ -576,6 +559,30 @@
     <script src="assets/js/ajax-mail.js"></script>
     <!-- Main Js File -->
     <script src="assets/js/main.js"></script>
+
+    <script>
+        var counterContainer = document.querySelector(".website-counter");
+        var resetButton = document.querySelector("#reset");
+        var visitCount = localStorage.getItem("page_view");
+
+        // Check if page_view entry is present
+        if (visitCount) {
+            visitCount = Number(visitCount) + 1;
+            localStorage.setItem("page_view", visitCount);
+        } else {
+            visitCount = 1;
+            localStorage.setItem("page_view", 1);
+        }
+        counterContainer.innerHTML = visitCount;
+
+        // Adding onClick event listener
+        resetButton.addEventListener("click", () => {
+            visitCount = 1;
+            localStorage.setItem("page_view", 1);
+            counterContainer.innerHTML = visitCount;
+        });
+
+    </script>
 
 </body>
 
