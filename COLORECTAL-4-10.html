@@ -45,64 +45,213 @@
 
 <style>
     .vs-btn {
-        font-size: 12px;
-        /* padding: 19.5px 48px; */
-
-    }
-
-    .Common {
         font-size: 16px;
         padding: 19.5px 48px;
-        border-radius: 10px;
+
     }
 
-    td a {
+    .space,
+    .space-top {
+        padding-top: 40px !important;
+    }
+
+    .book {
+        position: relative;
+        display: flex;
+        margin: auto;
+        width: 40cqmin;
+        /*1* let pointer event go trough pages of lower Z than .book */
+        pointer-events: none;
+        transform-style: preserve-3d;
+        transition: translate 1s;
+        translate: calc(min(var(--c), 1) * 50%) 0%;
+        /* Incline on the X axis for pages preview */
+        rotate: 1 0 0 30deg;
+    }
+
+    .page {
+        /* PS: Don't go below thickness 0.5 or the pages might transpare */
+        --thickness: 4;
+        flex: none;
+        display: flex;
+        width: 100%;
+        font-size: 2cqmin;
+        /*1* allow pointer events on pages */
+        pointer-events: all;
+        user-select: none;
+        transform-style: preserve-3d;
+        transform-origin: left center;
+        transition:
+            transform 1s,
+            rotate 1s ease-in calc((min(var(--i), var(--c)) - max(var(--i), var(--c))) * 50ms);
+        translate: calc(var(--i) * -100%) 0px 0px;
+        transform: translateZ(calc((var(--c) - var(--i) - 0.5) * calc(var(--thickness) * .23cqmin)));
+        rotate: 0 1 0 calc(clamp(0, var(--c) - var(--i), 1) * -180deg);
+    }
+
+    .front,
+    .back {
+        position: relative;
+        flex: none;
+        width: 100%;
+        backface-visibility: hidden;
+        overflow: hidden;
+        background-color: #fff;
+        /* Fix backface visibility Firefox: */
+        translate: 0px;
+    }
+
+    .back {
+        translate: -100% 0;
+        rotate: 0 1 0 180deg;
+    }
+
+
+    /* That's it. Your FlipBook customization styles: */
+
+    .book {
+        counter-reset: page -1;
+
+        & a {
+            color: inherit;
+        }
+    }
+
+    .page {
+        box-shadow: 0em .5em 1em -.2em #00000020;
+    }
+
+    .front,
+    .back {
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: space-between;
+        padding: 2em;
+        border: 1px solid #0002;
+
+        &:has(img) {
+            padding: 0;
+        }
+
+        & img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        &::after {
+            position: absolute;
+            bottom: 1em;
+            counter-increment: page;
+            content: counter(page) ".";
+            font-size: 0.8em;
+        }
+    }
+
+    .cover {
+        &::after {
+            content: "";
+        }
+    }
+
+    .front {
+        &::after {
+            right: 1em;
+        }
+
+        background: linear-gradient(to left, #f7f7f7 80%, #eee 100%);
+        border-radius: .1em .5em .5em .1em;
+    }
+
+    .back {
+        &::after {
+            left: 1em;
+        }
+
+        background-image: linear-gradient(to right, #f7f7f7 80%, #eee 100%);
+        border-radius: .5em .1em .1em .5em;
+    }
+
+    .cover {
+        background: radial-gradient(circle farthest-corner at 80% 20%, hsl(150 80% 20% / .3) 0%, hsl(170 60% 10% / .1) 100%),
+            hsl(231, 32%, 29%) url("https://picsum.photos/id/984/800/900") 50% / cover;
+        color: hsl(200 30% 98%);
+    }
+
+    .books {
+        margin: 0;
+        display: flex;
+        min-height: 100dvh;
+        perspective: 1000px;
+        font: 1em/1.4 "Poppins", sans-serif;
+        overflow: hidden;
+        color: hsl(180 68% 5%);
+        background-image: radial-gradient(circle farthest-corner at 50% 50%, hsl(187 20% 88%) 30%, hsl(149 20% 94%) 100%);
+    }
+
+    .about-img1 .play-btn {
+        position: absolute;
+        left: 240px;
+        bottom: 173px;
+    }
+
+    .about-tab-nav .vs-btn.active h5 {
+        color: white;
+    }
+
+    .play-btn {
+        display: inline-block;
+        position: relative;
+        z-index: 1;
+        --icon-size: 70px;
+    }
+
+    .social-login {
+        position: relative;
+        float: left;
+        width: 100%;
+        height: auto;
+        padding: 10px 0 15px 0;
+        border-bottom: 1px solid #eee;
+    }
+
+    .social-login a {
+        position: relative;
+        float: left;
+        width: calc(40% - 8px);
+        text-decoration: none;
+        color: #fff;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        padding: 12px;
+        border-radius: 2px;
+        font-size: 13px;
+        text-transform: uppercase;
+        margin: 0 3%;
+        text-align: center;
+    }
+
+    .social-login a i {
+        /* position: relative;
+  float: left; */
+        width: 50px;
+        top: 2px;
+    }
+
+    .social-login a:first-child {
+        background-color: #49639F;
+    }
+
+    .social-login a:last-child {
+        background-color: #DF4A32;
+    }
+
+    .video-box .video-title {
         font-size: 16px;
-        font-weight: 800;
+        color: var(--white-color);
+        font-weight: 400;
+        max-width: 400px;
+        margin: 0 auto;
     }
-
-    td a:hover {
-        color: #c82027;
-    }
-
-    td {
-        align-items: center;
-    }
-
-    thead th {
-        font-size: 25px;
-        color: #c82027;
-        padding: 15px;
-    }
-
-    table td,
-    tr,
-    th {
-        border-color: #fff;
-    }
-
-    .table> :not(:last-child)> :last-child>* {
-        border-bottom-color: #c82027;
-    }
-    .vs-btn {
-    position: relative;
-    display: inline-block;
-    border: none;
-    text-align: center;
-    background-color: #27477d;
-    color: var(--white-color);
-    font-size: 13px;
-    line-height: 1;
-    font-weight: 700;
-    padding: 10.5px 8px;
-    border-radius: 9999px;
-    --icon-shape: 40px;
-    --icon-size: 30px;
-}
-.vs-btn:hover {
-    background-color: #c82027;
-    color: var(--white-color);
-}
 </style>
 
 <body>
@@ -346,111 +495,137 @@
         <div class="parallax" data-parallax-image="assets/img/hero/Robotic-Gi-Procedures.png"></div>
         <div class="container z-index-common">
             <div class="breadcumb-content">
-                <h1 class="breadcumb-title text-white">Table of Contents </h1>
+                <h1 class="breadcumb-title text-white">Robotic appendectomy<br /> - Dr. Tushar Dave, Dr. Sanjiv Haribhakti</h1>
+
             </div>
         </div>
     </div>
-    <section class="vs-accordion-wrapper mb-60">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <table class="table text-center align-items-center">
-                        <thead>
-                            <tr>
-                                <th scope="col">No</th>
-                                <th scope="col" style="text-align: start;">Sections</th>
-                                <th scope="col">Chapters</th>
-                                <th scope="col">Videos</th>
-                                <th scope="col">Downloads</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row"><a href="#">1</a></th>
-                                <td style="text-align: start;"><a href="fundamentals-toc.html"> FUNDAMENTALS OF ROBOTIC SURGERY</a></td>
-                                <td><a href="#">-</a></td>
-                                <td><a href="#">6</a></td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><a href="#">2</a></th>
-                                <td style="text-align: start;"><a href="UGIS.html"> UPPER GI SURGERY</a></td>
-                                <td><a href="#">6</a></td>
-                                <td><a href="#">9</a></td>
-                                <td><a href="#" target="_blank" class="vs-btn"><i class="fas fa-download"></i> Download
-                                        PDF</a></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><a href="#">3</a></th>
-                                <td style="text-align: start;"><a href="BARIATRIC.html"> BARIATRIC SURGERY</a></td>
-                                <td><a href="#">5</a></td>
-                                <td><a href="#">5</a></td>
-                                <td><a href="#" target="_blank" class="vs-btn"><i class="fas fa-download"></i> Download
-                                        PDF</a></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><a href="#">4</a></th>
-                                <td style="text-align: start;"><a href="COLORECTAL-SURGERY.html"> COLORECTAL SURGERY</a></td>
-                                <td><a href="#">11</a></td>
-                                <td><a href="#">11</a></td>
-                                <td><a href="#" target="_blank" class="vs-btn"><i class="fas fa-download"></i> Download
-                                        PDF</a></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><a href="#">5</a></th>
-                                <td style="text-align: start;"><a href="chapter-five.html"> HPB SURGERY</a></td>
-                                <td><a href="#">12</a></td>
-                                <td><a href="#">13</a></td>
-                                <td><a href="#" target="_blank" class="vs-btn"><i class="fas fa-download"></i> Download
-                                        PDF</a></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><a href="#">6</a></th>
-                                <td style="text-align: start;"><a href="chapter-six.html"> HERNIA & AWR</a></td>
-                                <td><a href="#">8</a></td>
-                                <td><a href="#">10</a></td>
-                                <td><a href="#" target="_blank" class="vs-btn"><i class="fas fa-download"></i> Download
-                                        PDF</a></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><a href="#">7</a></th>
-                                <td style="text-align: start;"><a href="chapter-nine.html"> OTHER SURGERY</a></td>
-                                <td><a href="#">3</a></td>
-                                <td><a href="#">3</a></td>
-                                <td><a href="#" target="_blank" class="vs-btn"><i class="fas fa-download"></i> Download
-                                        PDF</a></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><a href="#">8</a></th>
-                                <td style="text-align: start;"><a href="chapter-seven.html"> TIPS and TRICKS </a></td>
-                                <td><a href="#">-</a></td>
-                                <td><a href="#">2</a></td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><a href="#">9</a></th>
-                                <td style="text-align: start;"><a href="chapter-eight.html"> INNOVATIONS </a></td>
-                                <td><a href="#">-</a></td>
-                                <td><a href="#">5</a></td>
-                                <td>-</td>
-                            </tr>
-                        </tbody>
-                        <thead>
-                            <tr>
-                                <th scope="col"  style="text-align: start;color: #19468d;">Total</th>
-                                <th scope="col" style="text-align: start;color: #19468d;">HARG<span
-                                        class="text-theme">i</span>S</th>
-                                
-                                <th scope="col">45</th>
-                                <th scope="col">64</th>
-                                <td><a href="#" target="_blank" class="vs-btn"><i class="fas fa-download"></i> Download All Section PDF</a></td>
-                            </tr>
-                        </thead>
-                    </table>
+
+    <div class="container-style6">
+        <ul class="nav about-tab-nav mb-3 mb-xl-4 mt-xl-4 pb-3 pt-4 gap-5 justify-content-center" id="myTab"
+            role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link vs-btn active" id="menu1-tab" data-bs-toggle="tab" data-bs-target="#menu1"
+                    type="button" role="tab" aria-controls="menu1" aria-selected="false">
+                    <h5 class="m-0">Chapter Content</h5>
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link vs-btn" id="menu2-tab" data-bs-toggle="tab" data-bs-target="#menu2"
+                    type="button" role="tab" aria-controls="menu2" aria-selected="true">
+                    <h5 class="m-0">Chapter Videos</h5>
+                </button>
+            </li>
+
+        </ul>
+        <div class="tab-content" id="aboutTab">
+            <div class="tab-pane " id="menu2" role="tabpanel" aria-labelledby="menu2-tab">
+                <!-- testimonial-section -->
+                <section class="testimonial-section-two space">
+                    <div class="container-style6">
+
+                        <div class="row text-center justify-content-center">
+                            <div class="col-lg-6">
+                                <div class="video-box">
+                                    <div class="video-thumb" data-overlay="theme3" data-opacity="7"
+                                        bis_skin_checked="1"><img src="assets/img/about/Video Banner.png"
+                                            alt="video-thumb"></div>
+                                    <div class="video-content" bis_skin_checked="1">
+                                        <h6 class="text-white">Robotic appendectomy </h6>
+                                        <a href="./assets/img/about/robotic.mp4" class="play-btn style4"><i
+                                                class="fas fa-play"></i></a>
+                                        <p class="video-title"><a class="text-inherit" href="#">Author :
+                                                <span> Dr. Tushar Dave, Dr. Sanjiv Haribhakti</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="tab-pane  Show active" id="menu1" role="tabpanel" aria-labelledby="menu1-tab">
+                <section class="testimonial-section-two space">
+                    <div class="container-style6">
+                        <div class="row pb-80">
+                            <div class="col-lg-4 mb-4 mb-lg-0">
+
+                                <div class="row gap-3">
+                                    <div class="col">
+                                        <div class="about-img1 wow fadeInUp" data-wow-delay="0.1s">
+                                            <img src="assets/img/about/Cover-page.png" alt="About Image" class="w-75">
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-lg-8">
+                                <h2>Robotic appendectomy</h2>
+                                <div class="list">
+                                    <li><span class="text-theme">Author :</span> Dr. Tushar Dave, Dr. Sanjiv Haribhakti</li>
+                                    <li><span class="text-theme">Pages :</span> 28</li>
+                                </div>
+                                <a href="Book-flip.html" target="_blank" class="vs-btn mt-3"><i class="fas fa-eye"></i>
+                                    View Book</a>
+                                <a href="#" target="_blank" class="vs-btn mt-3" data-bs-target="#exampleModalToggle"
+                                    data-bs-toggle="modal"><i class="fas fa-download"></i> Download PDF
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+        tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <img src="assets/img/logo.png" alt="" class="w-25">
+                    <h1 class="modal-title fs-5 text-center" id="exampleModalToggleLabel">Registration For Download</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12 form-group">
+                            <input type="text" class="form-control" placeholder="User Name">
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <input type="text" class="form-control" placeholder="Email Id">
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Select Country</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="social-login">
+                            <a href="#">
+                                <i class="fab fa-facebook"></i>
+                                Login in with facebook
+                            </a>
+                            <a href="#">
+                                <i class="fab fa-google-plus-g"></i>
+                                log in with Google
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer text-center">
+                    <button class="vs-btn text-center" data-bs-target="#exampleModalToggle2"
+                        data-bs-toggle="modal">Submit</button>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+
 
     <!--==============================
 			Footer Area
@@ -602,6 +777,25 @@
             counterContainer.innerHTML = visitCount;
         });
 
+
+
+
+
+
+
+        const flipBook = (elBook) => {
+            elBook.style.setProperty("--c", 0); // Set current page
+            elBook.querySelectorAll(".page").forEach((page, idx) => {
+                page.style.setProperty("--i", idx);
+                page.addEventListener("click", (evt) => {
+                    if (evt.target.closest("a")) return;
+                    const curr = evt.target.closest(".back") ? idx : idx + 1;
+                    elBook.style.setProperty("--c", curr);
+                });
+            });
+        };
+
+        document.querySelectorAll(".book").forEach(flipBook);
     </script>
 
 </body>

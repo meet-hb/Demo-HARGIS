@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>RGS-Robotic GI Surgery</title>
+    <meta name="author" content="Vecuro">
+    <meta name="description" content="Medixi - Medical and Health Care HTML Template">
+    <meta name="keywords" content="Medixi - Medical and Health Care HTML Template">
+    <meta name="robots" content="INDEX,FOLLOW">
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--==============================
+	   Google Web Fonts
+	============================== -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&amp;family=Quicksand:wght@400;700&amp;family=Roboto:wght@400;500;700&amp;display=swap"
+        rel="stylesheet">
+    <!-- Favicons - Place favicon.ico in the root directory -->
+    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+    <link rel="icon" href="assets/img/favicon.png" type="image/x-icon">
+    <!--==============================
+	    All CSS File
+	============================== -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="assets/css/app.min.css"> -->
+    <!-- Fontawesome Icon -->
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+    <!-- Layerslider -->
+    <link rel="stylesheet" href="assets/css/layerslider.min.css">
+    <!-- jQuery DatePicker -->
+    <link rel="stylesheet" href="assets/css/jquery.datetimepicker.min.css">
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="assets/css/magnific-popup.min.css">
+    <!-- Slick Slider -->
+    <link rel="stylesheet" href="assets/css/slick.min.css">
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="assets/css/animate.min.css">
+    <!-- Theme Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<style>
+    .vs-btn {
+        font-size: 12px;
+        /* padding: 19.5px 48px; */
+
+    }
+
+    .Common {
+        font-size: 16px;
+        padding: 19.5px 48px;
+        border-radius: 10px;
+    }
+
+    td a {
+        font-size: 16px;
+        font-weight: 800;
+    }
+
+    td a:hover {
+        color: #c82027;
+    }
+
+    td {
+        align-items: center;
+    }
+
+    thead th {
+        font-size: 25px;
+        color: #c82027;
+        padding: 15px;
+    }
+
+    table td,
+    tr,
+    th {
+        border-color: #fff;
+    }
+
+    .table> :not(:last-child)> :last-child>* {
+        border-bottom-color: #c82027;
+    }
+    .vs-btn {
+    position: relative;
+    display: inline-block;
+    border: none;
+    text-align: center;
+    background-color: #27477d;
+    color: var(--white-color);
+    font-size: 13px;
+    line-height: 1;
+    font-weight: 700;
+    padding: 10.5px 8px;
+    border-radius: 9999px;
+    --icon-shape: 40px;
+    --icon-size: 30px;
+}
+.vs-btn:hover {
+    background-color: #c82027;
+    color: var(--white-color);
+}
+</style>
+
+<body>
+    <!--==============================
+     Preloader
+  ==============================-->
+    <div class="preloader">
+        <!-- <button class="vs-btn preloaderCls">Cancel Preloader </button> -->
+        <div class="preloader-inner">
+            <img src="./assets/img/Demo.png">
+        </div>
+    </div>
+    <!--==============================
+    Mobile Menu
+  ============================== -->
+    <div class="vs-menu-wrapper">
+        <div class="vs-menu-area text-center">
+            <button class="vs-menu-toggle"><i class="fal fa-times"></i></button>
+            <div class="mobile-logo">
+                <a href="index.html"><img src="assets/img/logo.png" alt="Medixi"></a>
+            </div>
+            <form action="#" class="mobile-menu-form">
+                <input type="text" class="form-control" placeholder="Search...">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+            <div class="vs-mobile-menu">
+                <ul>
+                    <li class="menu-item-has-children">
+                        <a href="#">About</a>
+                        <ul class="sub-menu">
+                            <li><a href="Mission-Vision.html">Mission & Vision</a></li>
+                            <li><a href="HARGiS-Atlas.html">HARGiS Atlas</a></li>
+                            <li><a href="Editor.html">Editors</a></li>
+                            <li class="menu-item-has-children">
+                                <a href="Publishers.html">Publishers</a>
+                                <ul class="sub-menu">
+                                    <li><a href="Chief-Editor.html">Haribhakti Education Foundation</a></li>
+                                    <li><a href="Co-Editor.html">Kaizen Hospital</a></li>
+                                    <li><a href="Co-Editor.html">SSI Innovations</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="Foreword.html">Foreword</a></li>
+                            <li><a href="Contributors.html">Contributors</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="robotic-gi-procedures.html">HARG<span class="text-theme">i</span>S
+                            TOC </a>
+                    </li>
+                    <li class="menu-item-has-children mega-menu-wrap">
+                        <a href="#"><span class="has-new-label">Academics</a>
+                        <ul class="mega-menu">
+                            <li><a href="#">Education & Training</a>
+                                <ul>
+                                    <li><a href="Fellowships.html">Fellowship</a></li>
+                                    <li><a href="Observers.html">Onserves</a></li>
+                                    <li><a href="#">Kaizen-Con</a></li>
+                                    <li><a href="#">Lap Skill</a></li>
+                                    <li><a href="#">CME</a></li>
+                                    <li><a href="#">GISurgery.info</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Books & Publications</a>
+                                <ul>
+                                    <li><a href="Surgical-Gastroenterology.html">Surgical
+                                            Gastroenterology</a>
+                                    </li>
+                                    <li><a href="Lap-Colorectal-Surgery.html">Lap. Colorectal
+                                            Surgery</a></li>
+                                    <li><a href="Gi-Surgery-book.html">Decision making in Gi
+                                            Surgery</a>
+                                    </li>
+                                    <li><a href="Big-5-lesson.html">Big 5 Lessons</a></li>
+                                    <li><a href="Bhagvat-Geeta.html">Bhagavad Geeta</a></li>
+                                    <li><a href="coming-soon.html">Publications</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="innovation's.html">Innovations</a>
+                    </li>
+                    <li>
+                        <a href="Patient-Testimonials.html">Patient Testimonials</a>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="Gallery.html">Gallery</a>
+                        <ul class="sub-menu">
+                            <li><a href="Robotic-celebration.html">200+ Robotic Celebration</a></li>
+                            <li><a href="CM-Event.html">CM Event & COE</a></li>
+                            <li><a href="photo-gallery.html">Photos & Events</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="contact.html">Contact Us</a>
+                    </li>
+                    <!-- <li>
+                                            <a href="#">Contact</a>
+                                        </li> -->
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--==============================
+    Sidemenu
+    ============================== -->
+    <!--==============================
+    Popup Search Box
+    ============================== -->
+    <div class="popup-search-box d-none d-lg-block  ">
+        <button class="searchClose border-theme text-theme"><i class="fal fa-times"></i></button>
+        <form action="#">
+            <input type="text" class="border-theme" placeholder="What are you looking for">
+            <button type="submit"><i class="fal fa-search"></i></button>
+        </form>
+    </div>
+    <!--==============================
+        Header Area
+    ==============================-->
+    <header class="header-wrapper header-layout1">
+        <!-- Header Top -->
+
+        <!-- Sticky Active -->
+        <div class="sticky-wrap">
+            <div class="sticky-active">
+                <!-- Header Main -->
+                <div class="header-main">
+                    <div class="container container-style1 position-relative">
+                        <div class="row align-items-center justify-content-between">
+                            <div class="col-auto">
+                                <div class="header1-logo py-2">
+                                    <a href="index.html"><img src="assets/img/logo.png" alt="Logo"></a>
+                                </div>
+                            </div>
+                            <div class="col text-end text-lg-center">
+                                <nav class="main-menu menu-style1 d-none d-lg-block">
+                                    <ul>
+                                        <li class="menu-item-has-children">
+                                            <a href="#">About</a>
+                                            <ul class="sub-menu">
+                                                <li><a href="Mission-Vision.html">Mission & Vision</a></li>
+                                                <li><a href="HARGiS-Atlas.html">HARGiS Atlas</a></li>
+                                                <li><a href="Editor.html">Editors</a></li>
+                                                <li class="menu-item-has-children">
+                                                    <a href="Publishers.html">Publishers</a>
+                                                    <ul class="sub-menu">
+                                                        <li><a href="Chief-Editor.html">Haribhakti Education
+                                                                Foundation</a></li>
+                                                        <li><a href="Co-Editor.html">Kaizen Hospital</a></li>
+                                                        <li><a href="Co-Editor.html">SSI Innovations</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="Foreword.html">Foreword</a></li>
+                                                <li><a href="Contributors.html">Contributors</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="robotic-gi-procedures.html">HARG<span class="text-theme">i</span>S
+                                                TOC </a>
+                                        </li>
+                                        <li class="menu-item-has-children mega-menu-wrap">
+                                            <a href="#"><span class="has-new-label">Academics</a>
+                                            <ul class="mega-menu">
+                                                <li><a href="#">Education & Training</a>
+                                                    <ul>
+                                                        <li><a href="Fellowships.html">Fellowship</a></li>
+                                                        <li><a href="Observers.html">Onserves</a></li>
+                                                        <li><a href="#">Kaizen-Con</a></li>
+                                                        <li><a href="#">Lap Skill</a></li>
+                                                        <li><a href="#">CME</a></li>
+                                                        <li><a href="#">GISurgery.info</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="#">Books & Publications</a>
+                                                    <ul>
+                                                        <li><a href="Surgical-Gastroenterology.html">Surgical
+                                                                Gastroenterology</a>
+                                                        </li>
+                                                        <li><a href="Lap-Colorectal-Surgery.html">Lap. Colorectal
+                                                                Surgery</a></li>
+                                                        <li><a href="Gi-Surgery-book.html">Decision making in Gi
+                                                                Surgery</a>
+                                                        </li>
+                                                        <li><a href="Big-5-lesson.html">Big 5 Lessons</a></li>
+                                                        <li><a href="Bhagvat-Geeta.html">Bhagavad Geeta</a></li>
+                                                        <li><a href="coming-soon.html">Publications</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="innovation's.html">Innovations</a>
+                                        </li>
+                                        <li>
+                                            <a href="Patient-Testimonials.html">Patient Testimonials</a>
+                                        </li>
+                                        <li class="menu-item-has-children">
+                                            <a href="Gallery.html">Gallery</a>
+                                            <ul class="sub-menu">
+                                                <li><a href="Robotic-celebration.html">200+ Robotic Celebration</a></li>
+                                                <li><a href="CM-Event.html">CM Event & COE</a></li>
+                                                <li><a href="photo-gallery.html">Photos & Events</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="contact.html">Contact Us</a>
+                                        </li>
+                                        <!-- <li>
+                                            <a href="#">Contact</a>
+                                        </li> -->
+                                    </ul>
+                                </nav>
+
+                                <button class="vs-menu-toggle d-inline-block d-lg-none"><i
+                                        class="fas fa-bars"></i></button>
+                            </div>
+                            <div class="col-auto gap-3 d-none d-lg-flex">
+                                <a href="#" class="icon-btn style3 searchBoxTggler"><i class="far fa-search"></i></a>
+                                <!-- <div class="col-auto d-none-xxxl">
+                                <div class="header-call phone-box d-flex align-items-center style2">
+                                    <a href="tel:66925682596" class="box-icon"><i class="fas fa-phone-alt"></i></a>
+                                    <div class="media-body">
+                                        <span class="fs-xs text-title">Call Anytime</span>
+                                        <p class="h4 fw-bold lh-1 mb-0"><a href="tel:66925682596">669 2568 2596</a></p>
+                                    </div>
+                                </div>
+                            </div> -->
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header-note  d-none d-xl-block">
+                <div class="note-inner">
+                    <div class="container custom-container justify-content-between">
+                        <div class="col-auto">
+                            <h2 class="note-text text-white">Where Precision and Innovation Meets Compassion</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </header>
+    <div class="breadcumb-wrapper ">
+        <div class="parallax" data-parallax-image="assets/img/hero/Robotic-Gi-Procedures.png"></div>
+        <div class="container z-index-common">
+            <div class="breadcumb-content">
+                <h1 class="breadcumb-title text-white">COLORECTAL SURGERY</h1>
+            </div>
+        </div>
+    </div>
+    <section class="vs-accordion-wrapper mb-60">
+        <div class="container">
+            <div class="row justify-content-center">
+                
+                <div class="col-lg-12">
+                    <table class="table text-center align-items-center">
+                        <thead>
+                            <tr>
+                                <th scope="col">No</th>
+                                <th scope="col" style="text-align: start;">Chapters Name</th>
+                                <th scope="col">Chapters</th>
+                                <th scope="col">Videos</th>
+                                <th scope="col">Downloads</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row"><a href="#">4.1</a></th>
+                                <td style="text-align: start;"><a href="COLORECTAL-4-1.html"> Robotic Right Hemicolectomy for diverticulitis – Dr. Sai Vaibhav, Dr. Sanjiv Haribhakti</a></td>
+                                <td><a href="#">1</a></td>
+                                <td><a href="#">1</a></td>
+                                <td><a href="#" target="_blank" class="vs-btn"><i class="fas fa-download"></i> Download
+                                        PDF</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><a href="#">4.2</a></th>
+                                <td style="text-align: start;"><a href="COLORECTAL-4-2.html">Robotic Sigmoid colectomy for diverticulitis – Dr. Tushar Dave. Dr. Sanjiv Haribhakti</a></td>
+                                <td><a href="#">1</a></td>
+                                <td><a href="#">1</a></td>
+                                <td><a href="#" target="_blank" class="vs-btn"><i class="fas fa-download"></i> Download
+                                        PDF</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><a href="#">4.3</a></th>
+                                <td style="text-align: start;"><a href="COLORECTAL-4-3.html"> Robotic Transverse colectomy for malignancy – Dr Sai Vaibhav, Dr. Sanjiv Haribhakti</a></td>
+                                <td><a href="#">1</a></td>
+                                <td><a href="#">1</a></td>
+                                <td><a href="#" target="_blank" class="vs-btn"><i class="fas fa-download"></i> Download
+                                        PDF</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><a href="#">4.4</a></th>
+                                <td style="text-align: start;"><a href="COLORECTAL-4-4.html"> Robotic Anterior Resection with handsewn colorectal anastomosis, single docking – Dr. Arpan Prajapati, Dr. Sanjiv Haribhakti</a></td>
+                                <td><a href="#">1</a></td>
+                                <td><a href="#">1</a></td>
+                                <td><a href="#" target="_blank" class="vs-btn"><i class="fas fa-download"></i> Download
+                                        PDF</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><a href="#">4.5</a></th>
+                                <td style="text-align: start;"><a href="COLORECTAL-4-5.html"> Robotic Single docking LAR with splenic flexure mobilization - Dr. Somashekhar, Dr. Kushal Agrawal</a></td>
+                                <td><a href="#">1</a></td>
+                                <td><a href="#">1</a></td>
+                                <td><a href="#" target="_blank" class="vs-btn"><i class="fas fa-download"></i> Download
+                                        PDF</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><a href="#">4.6</a></th>
+                                <td style="text-align: start;"><a href="COLORECTAL-4-6.html"> Robotic Ultralow anterior resection, dual-docking method – Dr. Tushar Dave, Dr. Sanjiv Haribhakti</a></td>
+                                <td><a href="#">1</a></td>
+                                <td><a href="#">1</a></td>
+                                <td><a href="#" target="_blank" class="vs-btn"><i class="fas fa-download"></i> Download
+                                        PDF</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><a href="#">4.7</a></th>
+                                <td style="text-align: start;"><a href="COLORECTAL-4-7.html">Robotic Abdomino-perineal Resection - Dr. Tushar Dave. Dr. Sanjiv Haribhakti</a></td>
+                                <td><a href="#">1</a></td>
+                                <td><a href="#">1</a></td>
+                                <td><a href="#" target="_blank" class="vs-btn"><i class="fas fa-download"></i> Download
+                                        PDF</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><a href="#">4.8</a></th>
+                                <td style="text-align: start;"><a href="COLORECTAL-4-8.html">Robotic Ventral Rectopexy for internal rectal prolapse - Dr. Arpan Prajapati, Dr. Sanjiv Haribhakti</a></td>
+                                <td><a href="#">1</a></td>
+                                <td><a href="#">1</a></td>
+                                <td><a href="#" target="_blank" class="vs-btn"><i class="fas fa-download"></i> Download
+                                        PDF</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><a href="#">4.9</a></th>
+                                <td style="text-align: start;"><a href="COLORECTAL-4-9.html">Robotic Total colectomy, handsewn colorectal anastomosis by quadruple-docking – Dr. Tushar Dave, Dr. Sanjiv Haribhakti</a></td>
+                                <td><a href="#">1</a></td>
+                                <td><a href="#">1</a></td>
+                                <td><a href="#" target="_blank" class="vs-btn"><i class="fas fa-download"></i> Download
+                                        PDF</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><a href="#">4.10</a></th>
+                                <td style="text-align: start;"><a href="COLORECTAL-4-10.html">Robotic appendectomy - Dr. Tushar Dave, Dr. Sanjiv Haribhakti</a></td>
+                                <td><a href="#">1</a></td>
+                                <td><a href="#">1</a></td>
+                                <td><a href="#" target="_blank" class="vs-btn"><i class="fas fa-download"></i> Download
+                                        PDF</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><a href="#">4.11</a></th>
+                                <td style="text-align: start;"><a href="COLORECTAL-4-11.html">Robotic Restorative Proctocolectomy with Ileal Pouch Anal Anastomosis - Dr. Tushar Dave, Dr. Sanjiv Haribhakti</a></td>
+                                <td><a href="#">1</a></td>
+                                <td><a href="#">1</a></td>
+                                <td><a href="#" target="_blank" class="vs-btn"><i class="fas fa-download"></i> Download
+                                        PDF</a></td>
+                            </tr>
+                        </tbody>
+                        <thead>
+                            <tr>
+                                <th scope="col">Total</th>
+                                <th scope="col" style="text-align: start;color: #19468d;">HARG<span
+                                        class="text-theme">i</span>S</th>
+                                
+                                <th scope="col">11</th>
+                                <th scope="col">11</th>
+                                <td><a href="#" target="_blank" class="vs-btn"><i class="fas fa-download"></i> Download All Section PDF</a></td>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--==============================
+			Footer Area
+	==============================-->
+    <!--==============================
+			Footer Area
+	==============================-->
+    <footer class="footer-wrapper footer-layout1" data-bg-src="assets/img/bg/bg-shape-4.png">
+        <div class="container">
+            <div class="footer-top">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-sm-6 col-md-auto text-center text-sm-start">
+                        <div class="footer1-logo bg-white">
+                            <a href="index.html"><img src="assets/img/logo.png" alt="Logo"></a>
+                        </div>
+                    </div>
+                    <div class=" col-sm-6 col-md-auto pt-20 pt-sm-0 pb-20 pb-sm-0 text-center text-sm-end">
+                        <div class="footer-social">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="far fa-basketball-ball"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="widget-area">
+            <div class="container">
+                <div class="row justify-content-between">
+                    <div class="col-md-4 col-lg-3 col-xl-3">
+                        <div class="widget footer-widget  ">
+                            <h3 class="widget_title">Home</h3>
+                            <div class="vs-widget-about">
+                                <p> Kaizen Hospital, 132 Feet Ring Rd, nr. Helmet Circle, Memnagar, Ahmedabad, Gujarat
+                                    380052</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-auto col-xl-auto">
+                        <div class="widget footer-widget widget_nav_menu   ">
+                            <h3 class="widget_title">Tabs</h3>
+                            <div class="menu-all-pages-container">
+                                <ul class="menu">
+                                    <li><a href="#">HARGiS Atlas</a></li>
+                                    <li><a href="#">Chapters</a></li>
+                                    <li><a href="#">Videos</a></li>
+                                    <li><a href="#">TOC</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright bg-theme">
+            <div class="container">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-auto text-center text-md-end">
+                        <p class="mb-0 text-white">Copyright <i class="fal fa-copyright"></i> 2026<a class="text-white"
+                                href="index.html">Robotic GI Surgery</a>. All rights reserved by <a class="text-white"
+                                href="#">Kaizen Hospital</a>.</p>
+                    </div>
+                    <div class="col-auto d-none d-md-block">
+                        <ul class="footer-bottom-menu">
+                            <li><a href="#">Privacy & Policy</a></li>
+                            <li><a href="#">Terms & Condition</a></li>
+                            <!-- <li><a href="#">Contact</a></li> -->
+                            <!-- <li><a href="#">About</a></li> -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!--********************************
+			Code End  Here 
+	******************************** -->
+    <!--********************************
+			Code End  Here 
+	******************************** -->
+    <!-- Scroll To Top -->
+    <a href="#" class="scrollToTop scroll-bottom  style2"><i class="fas fa-arrow-alt-up"></i></a>
+    <!--==============================
+        All Js File
+    ============================== -->
+    <!-- Jquery -->
+    <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
+    <!-- Slick Slider -->
+    <script src="assets/js/slick.min.js"></script>
+    <!-- <script src="assets/js/app.min.js"></script> -->
+    <!-- Layerslider -->
+    <script src="assets/js/layerslider.utils.js"></script>
+    <script src="assets/js/layerslider.transitions.js"></script>
+    <script src="assets/js/layerslider.kreaturamedia.jquery.js"></script>
+    <!-- Bootstrap -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- jQuery Datepicker -->
+    <script src="assets/js/jquery.datetimepicker.min.js"></script>
+    <!-- Magnific Popup -->
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <!-- Isotope Filter -->
+    <script src="assets/js/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/js/isotope.pkgd.min.js"></script>
+    <!-- Parallax Scroll -->
+    <script src="assets/js/universal-parallax.min.js"></script>
+    <!-- WOW Animation -->
+    <script src="assets/js/wow.min.js"></script>
+    <!-- Custom Carousel -->
+    <script src="assets/js/vscustom-carousel.min.js"></script>
+    <!-- Form Js -->
+    <script src="assets/js/ajax-mail.js"></script>
+    <!-- Main Js File -->
+    <script src="assets/js/main.js"></script>
+
+    <script>
+        var counterContainer = document.querySelector(".website-counter");
+        var resetButton = document.querySelector("#reset");
+        var visitCount = localStorage.getItem("page_view");
+
+        // Check if page_view entry is present
+        if (visitCount) {
+            visitCount = Number(visitCount) + 1;
+            localStorage.setItem("page_view", visitCount);
+        } else {
+            visitCount = 1;
+            localStorage.setItem("page_view", 1);
+        }
+        counterContainer.innerHTML = visitCount;
+
+        // Adding onClick event listener
+        resetButton.addEventListener("click", () => {
+            visitCount = 1;
+            localStorage.setItem("page_view", 1);
+            counterContainer.innerHTML = visitCount;
+        });
+
+    </script>
+
+</body>
+
+</html>
