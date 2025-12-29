@@ -227,6 +227,7 @@ p {
   margin: 0 0 15px 0;
   color: var(--body-color);
   line-height: 1.7;
+  text-align: justify;
 }
 
 .h1,
