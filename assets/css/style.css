@@ -12731,7 +12731,7 @@ body {
   transition: all ease 0.4s;
 }
 .team-card .team-body {
-  padding: 0 40px 35px 40px;
+    padding: 0px 15px 35px 15px;
 }
 .team-card .team-head {
   position: relative;

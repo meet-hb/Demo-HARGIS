@@ -44,9 +44,9 @@
 </head>
 
 <style>
-    .vs-btn {
-        font-size: 12px;
-        /* padding: 19.5px 48px; */
+   .vs-btn {
+        font-size: 16px;
+        padding: 19.5px 38px;
 
     }
 
@@ -83,6 +83,19 @@
 
     .table> :not(:last-child)> :last-child>* {
         border-bottom-color: #c82027;
+    }
+    .read-more-target,
+    .read-more-trigger_opened {
+        display: none;
+    }
+
+    .read-more-state:checked~.read-more-wrap .read-more-target,
+    .read-more-state:checked~.read-more-trigger_opened {
+        display: block;
+    }
+
+    .read-more-state:checked~.read-more-trigger_closed {
+        display: none;
     }
 </style>
 
@@ -333,18 +346,27 @@
     </div>
     <section class="vs-accordion-wrapper space pt-0">
         <div class="container">
-            <div class="row">
-                <div class=" wow fadeInUp mt-5" data-wow-delay="300ms">
-                    <!-- <span class="sub-title6">Faq & Answers</span> -->
-                    <h2>Kaizen Hospital – Stands for continuous progressive improvement</h2>
-                    <p class="mt-2">Kaizen Hospital stands as one of India’s most trusted and advanced institutions for
-                        Gastrointestinal, HPB, and Minimally Invasive Surgery. Built on the philosophy of
-                        continuous improvement—the true meaning of “Kaizen”—our hospital has redefined
-                        standards of precision, safety, and patient-centered care. We continuously innovate to
-                        proficiently use the most advanced technologies in the most judicious manner to enhance
-                        patient recovery and outcomes. This is what makes Kaizen a Centre of Excellence in Robotic
-                        Gi Surgery in India </p>
+            <div class="row align-items-center pb--40">
+                <div class="col-lg-6">
+                    <img src="assets/img/Kaizen Hospital_New Logo.png" alt="Kaizen Hospital">
                 </div>
+                <div class="col-lg-6">
+                    <div class=" wow fadeInUp mt-5" data-wow-delay="300ms">
+                        <!-- <span class="sub-title6">Faq & Answers</span> -->
+                        <h2>Kaizen Hospital – Stands for continuous progressive improvement</h2>
+                        <p class="mt-2">Kaizen Hospital stands as one of India’s most trusted and advanced institutions
+                            for
+                            Gastrointestinal, HPB, and Minimally Invasive Surgery. Built on the philosophy of
+                            continuous improvement—the true meaning of “Kaizen”—our hospital has redefined
+                            standards of precision, safety, and patient-centered care. We continuously innovate to
+                            proficiently use the most advanced technologies in the most judicious manner to enhance
+                            patient recovery and outcomes. This is what makes Kaizen a Centre of Excellence in Robotic
+                            Gi Surgery in India </p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row mt-lg-3">
                 <div class="col-xl-7 col-md-12 col-sm-12 wow fadeInUp" data-wow-delay="400ms">
                     <h3 class="h5 mb-2 pb-1">
                         1. Gujarat’s First Super-Speciality Hospital Dedicated to Gastroenterology
@@ -367,53 +389,75 @@
             </div>
             <div class="row">
                 <div class="col-lg-12">
-                    <h3 class="h5 mb-2 pb-1">
-                        3. Advanced Robotic & Minimally Invasive Surgery Program
-                    </h3>
-                    <p>Kaizen is one of the few centres in India with a robust robotic surgery program, completing 200+
-                        successful robotic GI procedures, using India’s advanced indigenous robotic platform, the SSi
-                        Mantra 3.0. Kaizen Hospital also provides high quality advanced Laparoscopic Surgery completing
-                        8000+ laparoscopic procedures and 15,000 + major GI operations since its beginning in Nov 2011.
-                    </p>
-                    <h3 class="h5 mb-2 pb-1">
-                        With high-definition 3D vision, tremor filtration, and unmatched precision, we deliver
-                    </h3>
-                    <div class="list">
-                        <li>Smaller incisions</li>
-                        <li>Less pain and blood loss</li>
-                        <li>Lower complications</li>
-                        <li>Faster recovery</li>
-                        <li>Superior outcomes in complex surgeries</li>
+                    <div class="block-item-text">
+                        <input type="checkbox" hidden class="read-more-state" id="read-more">
+                        <div class="read-more-wrap">
+                            <h3 class="h5 mb-2 pb-1">
+                                3. Advanced Robotic & Minimally Invasive Surgery Program
+                            </h3>
+                            <p>Kaizen is one of the few centres in India with a robust robotic surgery program,
+                                completing 200+
+                                successful robotic GI procedures, using India’s advanced indigenous robotic platform,
+                                the SSi
+                                Mantra 3.0. Kaizen Hospital also provides high quality advanced Laparoscopic Surgery
+                                completing
+                                8000+ laparoscopic procedures and 15,000 + major GI operations since its beginning in
+                                Nov 2011.
+                            </p>
+
+                            <div class="read-more-target">
+                                <h3 class="h5 mb-2 pb-1">
+                                    With high-definition 3D vision, tremor filtration, and unmatched precision, we
+                                    deliver
+                                </h3>
+                                <div class="list">
+                                    <li>Smaller incisions</li>
+                                    <li>Less pain and blood loss</li>
+                                    <li>Lower complications</li>
+                                    <li>Faster recovery</li>
+                                    <li>Superior outcomes in complex surgeries</li>
+                                </div>
+                                <h3 class="h5 mb-2 pb-1">
+                                    4. Comprehensive Care Under One Roof
+                                </h3>
+                                <p>From diagnosis to minimally invasive treatment and long-term follow-up, Kaizen offers
+                                    a
+                                    fully integrated ecosystem</p>
+                                <div class="list">
+                                    <li>State-of-the-art operating rooms</li>
+                                    <li>Endoscopy & ERCP suites</li>
+                                    <li>Advanced imaging – including CT Scan</li>
+                                    <li>Functional Labs – 24 hr pH Impedance monitoring & Manometry</li>
+                                    <li>Intensive care and recovery units</li>
+                                    <li>Nutritional, rehabilitation and counselling services</li>
+                                    <p>This seamless coordination ensures accuracy, safety, and convenience for every
+                                        patient. </p>
+                                </div>
+                                <h3 class="h5 mb-2 pb-1">5. Excellence in GI Oncology & Complex Surgeries </h3>
+                                <p>Kaizen Hospital is one of the few centres capable of handling highly complex GI
+                                    cancers,
+                                    liver resections, pancreatic surgeries, major colorectal procedures, and
+                                    re-operative
+                                    cases with outstanding outcomes. Our multi-disciplinary discussions and
+                                    evidence-based
+                                    decision making ensures personalised care. </p>
+                                <h3 class="h5 mb-2 pb-1">6. Innovation, Education, and Research </h3>
+                                <p>Kaizen is a hub of innovation:</p>
+                                <div class="list">
+                                    <li>Development of novel surgical instruments and techniques </li>
+                                    <li>Leadership in surgical education through workshops, courses, under the aegis of
+                                        Haribhakti Education Foundation </li>
+                                    <li>Creation of India’s first Robotic GI Surgery Atlas </li>
+                                    <li>Collaboration with global and national experts</li>
+                                    <p>This culture of learning keeps us at the forefront of surgical innovation and
+                                        progress.</p>
+                                </div>
+                            </div>
+                            <label for="read-more" class="read-more-trigger_closed vs-btn">Read More</label>
+                            <label for="read-more" class="read-more-trigger_opened vs-btn">Read Less</label>
+                        </div>
                     </div>
-                    <h3 class="h5 mb-2 pb-1">
-                        4. Comprehensive Care Under One Roof
-                    </h3>
-                    <p>From diagnosis to minimally invasive treatment and long-term follow-up, Kaizen offers a
-                        fully integrated ecosystem</p>
-                    <div class="list">
-                        <li>State-of-the-art operating rooms</li>
-                        <li>Endoscopy & ERCP suites</li>
-                        <li>Advanced imaging – including CT Scan</li>
-                        <li>Functional Labs – 24 hr pH Impedance monitoring & Manometry</li>
-                        <li>Intensive care and recovery units</li>
-                        <li>Nutritional, rehabilitation and counselling services</li>
-                        <p>This seamless coordination ensures accuracy, safety, and convenience for every patient. </p>
-                    </div>
-                    <h3 class="h5 mb-2 pb-1">5. Excellence in GI Oncology & Complex Surgeries </h3>
-                    <p>Kaizen Hospital is one of the few centres capable of handling highly complex GI cancers,
-                        liver resections, pancreatic surgeries, major colorectal procedures, and re-operative
-                        cases with outstanding outcomes. Our multi-disciplinary discussions and evidence-based
-                        decision making ensures personalised care. </p>
-                    <h3 class="h5 mb-2 pb-1">6. Innovation, Education, and Research </h3>
-                    <p>Kaizen is a hub of innovation:</p>
-                    <div class="list">
-                        <li>Development of novel surgical instruments and techniques </li>
-                        <li>Leadership in surgical education through workshops, courses, under the aegis of
-                            Haribhakti Education Foundation </li>
-                        <li>Creation of India’s first Robotic GI Surgery Atlas </li>
-                        <li>Collaboration with global and national experts</li>
-                        <p>This culture of learning keeps us at the forefront of surgical innovation and progress.</p>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -485,7 +529,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="col-xl-3 col-lg-4 col-md-6">
                     <div class="team-box mb-30">
                         <div class="team-img">
@@ -562,7 +606,7 @@
                         with clinical wisdom and a patient-first culture, we continue to set benchmarks in GI
                         healthcare. </p>
                 </div>
-                
+
             </div>
         </div>
     </section>
