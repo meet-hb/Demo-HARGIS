@@ -69,6 +69,21 @@
         color: white;
         border: 0;
     }
+
+    .rwd-media {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 56.25%;
+        /* 16:9 */
+    }
+
+    .rwd-media iframe,
+    .rwd-media video {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
 </style>
 
 <body class="">
@@ -420,6 +435,30 @@
             </div>
         </div>
     </section>
+
+
+
+
+    <section class="vs-about-wrapper space">
+        <div class="container">
+            <div class="title-area-four text-center  wow fadeInUp" data-wow-delay="400ms">
+
+                <h2 class="h1 mt-n2 mb-3 pb-1">Why <span class="text-theme">HARGiS</span></h2>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-6 mb-30 mb-lg-0">
+                    <div class="about-img1 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="rwd-media">
+                            <iframe
+                                src="https://player.vimeo.com/video/60814695?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff"
+                                width="448" height="252" frameborder="0" webkitAllowFullScreen mozallowfullscreen
+                                allowFullScreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <!--==============================
     Service Area
     ==============================-->
@@ -580,6 +619,19 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-lg-12 col-md-6 col-sm-12 wow fadeInRight" data-wow-delay="900ms">
+                    <div class="service-card6">
+                        <div class="">
+                            <img src="./assets/img/favicon.png" alt="">
+                        </div>
+                        <div class="content-box">
+                            <a href="coming-soon.html">
+                                <h4 class="title">Unedited Virtual Live Surgeries</h4>
+                            </a>
+                            <!-- <a href="chapter-one.html" class="more-btn"><i class="fa fa-arrow-right"></i></a> -->
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -695,7 +747,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="tab-pane fade" id="paediatrics" role="tabpanel" aria-labelledby="paediatrics-tab">
+                            <div class="tab-pane fade" id="paediatrics" role="tabpanel"
+                                aria-labelledby="paediatrics-tab">
                                 <div class="service-tab-content">
                                     <h4 class="title">Small bowel</h4>
                                     <p>Includes conditions like Crohn's disease, which causes chronic inflammation. </p>
@@ -865,16 +918,7 @@
     <!--==============================
     Appointment Form Area 
     ==============================-->
-    <div class="container  mt-60">
-        <div class="video-box wow fadeInUp" data-wow-delay="0.3s">
-            <div class="video-thumb" data-overlay="theme3" data-opacity="7"><img src="assets/img/about/video-1-1.png"
-                    alt="video-thumb"></div>
-            <div class="video-content">
-                <a href="./assets/img/about/robotic.mp4" class="play-btn style4"><i class="fas fa-play"></i></a>
-                <h3 class="video-title"><a class="text-inherit" href="#">Robotic GI Surgery</a></h3>
-            </div>
-        </div>
-    </div>
+    
     <!--==============================
      Project Area
   ==============================-->
@@ -884,12 +928,13 @@
     <section class="vs-blog-wrapper space-top space-md-bottom">
         <div class="container">
             <div class="row  text-center justify-content-center">
-                <div class="col-md-10 col-lg-8 col-xl-10 wow fadeIn" data-wow-delay="0.3s">
+                <div class="col-md-10 col-lg-12 col-xl-12 wow fadeIn" data-wow-delay="0.3s">
                     <div class="section-title">
-                        <h2 class="h1 ">Inauguration of Center of Excellence – Hon'ble Chief Minister Shri Bhupendrabhai
-                            Patel </h2>
-                        <p>Chief Minister Virtually Inaugurates ‘Center of Excellence in Robotic Gastrointestinal
-                            Surgery’ at Kaizen Hospital, Ahmedabad</p>
+                        <h2 class="h1 ">Inauguration of Center of Excellence </h2>
+                        <h3 class="h1">Hon'ble Chief Minister Shri Bhupendrabhai
+                            Patel</h3>
+                        <h5 class="text-center">Chief Minister Inaugurates ‘Center of Excellence in Robotic Gastrointestinal
+                            Surgery’ at Kaizen Hospital, Ahmedabad</h5>
                     </div>
                 </div>
             </div>
@@ -936,7 +981,8 @@
                     <div class="col-md-3 col-lg-3 col-xl-3">
                         <div class="widget footer-widget">
                             <div class="vs-widget-about">
-                                <p> Kaizen Hospital (A Unit of G.I. Healthcare Pvt. Ltd.)
+                                <p class="h2">Kaizen Hospital</p>
+                                <p>A Unit of G.I. Healthcare Pvt. Ltd.<br />
                                     132 Feet Ring Road, Near Helmet Cross Road,
                                     Memnagar, Ahmedabad – 380052, Gujarat, India. </p>
                                 <p><a class="text-white" href="tel:+91 98240 40044"><i
@@ -960,10 +1006,10 @@
                             <h3 class="widget_title">Tabs</h3>
                             <div class="menu-all-pages-container">
                                 <ul class="menu">
-                                    <li><a href="#">HARGiS Atlas</a></li>
-                                    <li><a href="#">Chapters</a></li>
-                                    <li><a href="#">Videos</a></li>
-                                    <li><a href="#">TOC</a></li>
+                                    <li><a href="robotic-gi-procedures.html">TOC</a></li>
+                                    <li><a href="Mahendra-Bhandari.html">Foreword</a></li>
+                                    <li><a href="HEF.html">Publishers</a></li>
+                                    <li><a href="Contributors.html">Contributors</a></li>
                                 </ul>
                             </div>
                         </div>
