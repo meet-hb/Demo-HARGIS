@@ -4379,7 +4379,7 @@ textarea.form-control.is-invalid {
 .main-menu ul.mega-menu {
   position: absolute;
   text-align: left;
-  top: 100%;
+  /* top: 100%; */
   left: 0;
   background-color: var(--white-color);
   -webkit-box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
