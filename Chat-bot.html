@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Chatbot UI</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            height: 200vh;
+        }
+
+        /* CHAT ICON */
+
+        .chat-icon {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 60px;
+            height: 60px;
+            background: #ff6a00;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .chat-icon img {
+            width: 30px;
+        }
+
+        /* CHAT BOX */
+
+        .chat-box {
+            position: fixed;
+            bottom: 100px;
+            right: 25px;
+            width: 350px;
+            height: 500px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* HEADER */
+
+        .chat-header {
+            background: linear-gradient(90deg, #ff7a00, #ff5c00);
+            color: white;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .chat-header img {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .chat-title {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .close-btn {
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        /* CHAT BODY */
+
+        .chat-body {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            background: #f6f6f6;
+        }
+
+        /* MESSAGE BUBBLES */
+
+        .message {
+            max-width: 70%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            font-size: 14px;
+        }
+
+        .bot {
+            background: #e5e5e5;
+        }
+
+        .user {
+            background: #ff6a00;
+            color: white;
+            margin-left: auto;
+        }
+
+        /* INPUT AREA */
+
+        .chat-input {
+            display: flex;
+            border-top: 1px solid #ddd;
+        }
+
+        .chat-input input {
+            flex: 1;
+            border: none;
+            padding: 12px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .chat-input button {
+            background: #ff6a00;
+            color: white;
+            border: none;
+            padding: 0 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- CHAT BOX -->
+
+    <div class="chat-box" id="chatBox">
+
+        <div class="chat-header">
+
+            <div class="chat-title">
+                <img src="https://randomuser.me/api/portraits/women/44.jpg">
+                Have a question?
+            </div>
+
+            <div class="close-btn" onclick="toggleChat()">✕</div>
+
+        </div>
+
+        <div class="chat-body" id="chatBody">
+
+            <div class="message bot">
+                Hello 👋<br>
+                What is your preferred location?
+            </div>
+
+        </div>
+
+        <div class="chat-input">
+
+            <input type="text" id="userInput" placeholder="Type a message...">
+
+            <button onclick="sendMessage()">Send</button>
+
+        </div>
+
+    </div>
+
+
+    <!-- CHAT ICON -->
+
+    <div class="chat-icon" onclick="toggleChat()">
+        <img src="https://cdn-icons-png.flaticon.com/512/2462/2462719.png">
+    </div>
+
+
+    <script>
+
+        function toggleChat() {
+            let box = document.getElementById("chatBox");
+
+            if (box.style.display === "flex") {
+                box.style.display = "none";
+            } else {
+                box.style.display = "flex";
+            }
+        }
+
+
+        function sendMessage() {
+
+            let input = document.getElementById("userInput");
+            let message = input.value.trim();
+
+            if (message === "") return;
+
+            let chatBody = document.getElementById("chatBody");
+
+            /* USER MESSAGE */
+
+            let userMsg = document.createElement("div");
+            userMsg.className = "message user";
+            userMsg.innerText = message;
+            chatBody.appendChild(userMsg);
+
+            input.value = "";
+
+            /* BOT REPLY */
+
+            setTimeout(() => {
+
+                let botMsg = document.createElement("div");
+                botMsg.className = "message bot";
+                botMsg.innerText = "Thanks for your message. Our team will contact you soon.";
+                chatBody.appendChild(botMsg);
+
+                chatBody.scrollTop = chatBody.scrollHeight;
+
+            }, 800);
+
+            chatBody.scrollTop = chatBody.scrollHeight;
+
+        }
+
+    </script>
+
+</body>
+
+</html>
